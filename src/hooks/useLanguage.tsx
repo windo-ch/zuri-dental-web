@@ -1,13 +1,11 @@
 
 import { createContext, useState, useContext, useEffect, ReactNode } from 'react';
-import { translations } from '../data/translations';
-
-type LanguageType = 'en' | 'de' | 'it' | 'ru';
+import { translations, LanguageType } from '../data/translations';
 
 type LanguageContextType = {
   language: LanguageType;
   setLanguage: (lang: LanguageType) => void;
-  t: (key: string) => any; // Changed return type to any to accommodate arrays and objects
+  t: (key: string) => any;
 };
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
