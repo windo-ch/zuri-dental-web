@@ -160,7 +160,7 @@ export const en = {
     },
     mission: {
       title: 'Our Mission',
-      content: 'At Pietrobon & Michel, our mission is to create dental restorations that not only meet the highest functional standards but also achieve natural aesthetics that enhance patients' lives. We believe in collaborative relationships with dental professionals, working together to provide solutions that exceed expectations.'
+      content: 'At Pietrobon & Michel, our mission is to create dental restorations that not only meet the highest functional standards but also achieve natural aesthetics that enhance patients\' lives. We believe in collaborative relationships with dental professionals, working together to provide solutions that exceed expectations.'
     },
     quote: 'Excellence is never an accident; it is the result of high intention, sincere effort, intelligent direction, skillful execution, and the vision to see obstacles as opportunities.'
   },
@@ -182,7 +182,7 @@ export const en = {
     },
     philosophy: {
       title: 'Professional Philosophy',
-      content: 'I believe that dental prosthetics is both a science and an art. Each restoration should not only function flawlessly but should also harmonize with the patient's facial aesthetics and personality. My approach combines traditional craftsmanship with modern technology to achieve results that look and feel completely natural.'
+      content: 'I believe that dental prosthetics is both a science and an art. Each restoration should not only function flawlessly but should also harmonize with the patient\'s facial aesthetics and personality. My approach combines traditional craftsmanship with modern technology to achieve results that look and feel completely natural.'
     },
     quote: 'True perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.'
   },
