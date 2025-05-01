@@ -1,12 +1,15 @@
+
 import { useLanguage } from '../hooks/useLanguage';
 import { ArrowUpRight, Globe, Heart, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
 const Footer = () => {
   const {
     t,
     language,
     setLanguage
   } = useLanguage();
+  
   const languages = [{
     code: 'en',
     label: 'English'
@@ -20,6 +23,7 @@ const Footer = () => {
     code: 'ru',
     label: 'Русский'
   }];
+  
   return <footer className="bg-dental-800 text-white pt-16 pb-8">
       <div className="container max-w-6xl mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-10 mb-12">
@@ -81,7 +85,7 @@ const Footer = () => {
                 <span className="text-dental-400 mr-2">›</span> Reto Michel
               </Link>
               <Link to="/for-dentists" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
-                <span className="text-dental-400 mr-2">›</span> Dentists
+                <span className="text-dental-400 mr-2">›</span> {t('navigation.partner')}
               </Link>
               <Link to="/location" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
                 <span className="text-dental-400 mr-2">›</span> {t('navigation.location')}
@@ -89,8 +93,6 @@ const Footer = () => {
               <Link to="/contact" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
                 <span className="text-dental-400 mr-2">›</span> {t('navigation.contact')}
               </Link>
-              
-              
             </div>
           </div>
         </div>
@@ -112,4 +114,5 @@ const Footer = () => {
       </div>
     </footer>;
 };
+
 export default Footer;

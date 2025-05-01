@@ -2,7 +2,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { cn } from '@/lib/utils';
-import LanguageSwitcher from './LanguageSwitcher';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -68,7 +67,7 @@ const DesktopNavigation = () => {
                 : 'hover:text-dental-500'
             )}
           >
-            Dentists 
+            {t('navigation.partner')}
           </Link>
         </li>
         <li>
@@ -81,7 +80,7 @@ const DesktopNavigation = () => {
                 : 'hover:text-dental-500'
             )}
           >
-            {t('navigation.patients')}
+            {t('navigation.location')}
           </Link>
         </li>
         <li>

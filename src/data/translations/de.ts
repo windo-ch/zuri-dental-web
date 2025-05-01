@@ -1,4 +1,3 @@
-
 export const de = {
   navigation: {
     home: 'Startseite',
@@ -6,7 +5,8 @@ export const de = {
     location: 'Standort',
     contact: 'Kontakt',
     credo: 'Credo & Referenzen',
-    partner: 'Für Zahnärzte'
+    partner: 'Für Zahnärzte',
+    patients: 'Patienten'
   },
   hero: {
     title: 'Exzellenz in Zahntechnik',

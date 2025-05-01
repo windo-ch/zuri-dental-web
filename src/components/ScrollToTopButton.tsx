@@ -2,20 +2,29 @@
 import { useEffect, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 500) {
+      // Show button when scrolled 300px from the top
+      if (window.scrollY > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
     };
 
+    // Initial check
+    toggleVisibility();
+    
+    // Add scroll event listener
     window.addEventListener('scroll', toggleVisibility);
+    
+    // Clean up the event listener on component unmount
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
@@ -30,11 +39,10 @@ const ScrollToTopButton = () => {
     <button
       onClick={scrollToTop}
       className={cn(
-        'fixed bottom-6 right-6 z-50 p-3 rounded-full bg-dental-500 text-white shadow-lg',
-        'hover:bg-dental-600 transition-all duration-300 hover:shadow-xl',
-        'transform hover:-translate-y-1',
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none',
-        'transition-all duration-300'
+        'fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg',
+        'bg-dental-500 text-white hover:bg-dental-600 transform hover:-translate-y-1',
+        'transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-dental-400',
+        isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none',
       )}
       aria-label="Scroll to top"
     >
