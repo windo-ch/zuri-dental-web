@@ -64,7 +64,7 @@ const MobileMenu = ({ isOpen }: MobileMenuProps) => {
               to="/for-dentists" 
               className="w-full block text-left py-2 font-medium hover:text-dental-500 transition-colors"
             >
-              {t('navigation.dentists')}
+              Dentists
             </Link>
           </li>
           <li>

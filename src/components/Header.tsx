@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import Logo from './header/Logo';
 import DesktopNavigation from './header/DesktopNavigation';
 import MobileMenu from './header/MobileMenu';
+import LanguageSwitcher from './header/LanguageSwitcher';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,13 +50,17 @@ const Header = () => {
           : 'bg-transparent py-5'
       )}
     >
-      <div className="container max-w-6xl mx-auto px-4 flex items-center justify-between">
+      <div className="container max-w-6xl mx-auto px-4 flex items-center">
         <Logo />
         <DesktopNavigation />
+        
+        <div className="hidden md:flex items-center border-l pl-4 border-gray-200">
+          <LanguageSwitcher />
+        </div>
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-dental-800"
+          className="md:hidden text-dental-800 ml-auto"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >

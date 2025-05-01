@@ -7,19 +7,17 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { ChevronDown } from 'lucide-react';
 
 const DesktopNavigation = () => {
   const { t } = useLanguage();
   const location = useLocation();
 
   return (
-    <nav className="hidden md:flex items-center space-x-6">
-      <ul className="flex space-x-6">
+    <nav className="hidden md:flex items-center justify-center flex-1">
+      <ul className="flex space-x-8 items-center">
         <li className="relative group">
           <NavigationMenu>
             <NavigationMenuList>
@@ -70,7 +68,7 @@ const DesktopNavigation = () => {
                 : 'hover:text-dental-500'
             )}
           >
-            {t('navigation.dentists')}
+            {t('navigation.dentists')} 
           </Link>
         </li>
         <li>
@@ -100,10 +98,6 @@ const DesktopNavigation = () => {
           </Link>
         </li>
       </ul>
-
-      <div className="flex items-center border-l pl-4 border-gray-200">
-        <LanguageSwitcher />
-      </div>
     </nav>
   );
 };
