@@ -1,8 +1,6 @@
-
 import { useLanguage } from '../hooks/useLanguage';
 import { ArrowUpRight, Globe, Heart, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Footer = () => {
   const {
     t,
@@ -91,19 +89,15 @@ const Footer = () => {
               <Link to="/contact" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
                 <span className="text-dental-400 mr-2">›</span> {t('navigation.contact')}
               </Link>
-              <Link to="/privacy" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
-                <span className="text-dental-400 mr-2">›</span> {t('footer.privacy')}
-              </Link>
-              <Link to="/terms" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
-                <span className="text-dental-400 mr-2">›</span> {t('footer.terms')}
-              </Link>
+              
+              
             </div>
           </div>
         </div>
 
         <div className="pt-8 border-t border-dental-700 flex flex-col md:flex-row justify-between items-center">
           <p className="text-dental-300 text-sm mb-4 md:mb-0 flex items-center">
-            {t('footer.rights')} <Heart className="inline-block h-3 w-3 mx-1 text-red-400" /> 
+            {t('footer.rights')}  
           </p>
           
           <div className="flex space-x-6">
@@ -118,5 +112,4 @@ const Footer = () => {
       </div>
     </footer>;
 };
-
 export default Footer;
