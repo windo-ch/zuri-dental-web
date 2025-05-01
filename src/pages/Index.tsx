@@ -9,6 +9,7 @@ import Testimonials from '@/components/Testimonials';
 import Partners from '@/components/Partners';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const Index = () => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const Index = () => {
       },
       {
         threshold: 0.1,
+        rootMargin: '0px 0px -10% 0px'
       }
     );
 
@@ -49,6 +51,7 @@ const Index = () => {
       <Partners />
       <Footer />
       <CookieConsent />
+      <ScrollToTopButton />
     </div>
   );
 };
