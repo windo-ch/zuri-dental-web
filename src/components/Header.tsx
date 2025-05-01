@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../hooks/useLanguage';
 import { cn } from '@/lib/utils';
 
@@ -7,6 +8,7 @@ const Header = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +19,23 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when changing routes
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const scrollToSection = (sectionId: string) => {
     setMobileMenuOpen(false);
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+    
+    // If we're on the homepage, scroll to the section
+    if (location.pathname === '/') {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, navigate to homepage with hash
+      window.location.href = `/#${sectionId}`;
     }
   };
 
@@ -35,37 +49,69 @@ const Header = () => {
       )}
     >
       <div className="container max-w-6xl mx-auto px-4 flex items-center justify-between">
-        <a 
-          href="#" 
+        <Link 
+          to="/"
           className="flex items-center"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
         >
           <h2 className="font-display text-2xl font-medium text-dental-800">
             Pietrobon <span className="text-dental-500">&</span> Michel
           </h2>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           <ul className="flex space-x-6">
             <li>
-              <button 
-                onClick={() => scrollToSection('about')} 
-                className="font-medium text-sm hover:text-dental-500 transition-colors"
+              <Link 
+                to="/about" 
+                className={cn(
+                  "font-medium text-sm transition-colors",
+                  location.pathname === '/about' 
+                    ? 'text-dental-500' 
+                    : 'hover:text-dental-500'
+                )}
               >
                 {t('navigation.about')}
-              </button>
+              </Link>
             </li>
             <li>
-              <button 
-                onClick={() => scrollToSection('location')} 
-                className="font-medium text-sm hover:text-dental-500 transition-colors"
+              <Link 
+                to="/nicola-pietrobon" 
+                className={cn(
+                  "font-medium text-sm transition-colors",
+                  location.pathname === '/nicola-pietrobon' 
+                    ? 'text-dental-500' 
+                    : 'hover:text-dental-500'
+                )}
               >
-                {t('navigation.location')}
-              </button>
+                Nicola Pietrobon
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/reto-michel" 
+                className={cn(
+                  "font-medium text-sm transition-colors",
+                  location.pathname === '/reto-michel' 
+                    ? 'text-dental-500' 
+                    : 'hover:text-dental-500'
+                )}
+              >
+                Reto Michel
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/for-dentists" 
+                className={cn(
+                  "font-medium text-sm transition-colors",
+                  location.pathname === '/for-dentists' 
+                    ? 'text-dental-500' 
+                    : 'hover:text-dental-500'
+                )}
+              >
+                {t('navigation.partner')}
+              </Link>
             </li>
             <li>
               <button 
@@ -73,22 +119,6 @@ const Header = () => {
                 className="font-medium text-sm hover:text-dental-500 transition-colors"
               >
                 {t('navigation.contact')}
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => scrollToSection('credo')} 
-                className="font-medium text-sm hover:text-dental-500 transition-colors"
-              >
-                {t('navigation.credo')}
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => scrollToSection('partners')} 
-                className="font-medium text-sm hover:text-dental-500 transition-colors"
-              >
-                {t('navigation.partner')}
               </button>
             </li>
           </ul>
@@ -160,20 +190,36 @@ const Header = () => {
         <nav className="container px-4">
           <ul className="space-y-3">
             <li>
-              <button 
-                onClick={() => scrollToSection('about')} 
-                className="w-full text-left py-2 font-medium hover:text-dental-500 transition-colors"
+              <Link 
+                to="/about" 
+                className="w-full block text-left py-2 font-medium hover:text-dental-500 transition-colors"
               >
                 {t('navigation.about')}
-              </button>
+              </Link>
             </li>
             <li>
-              <button 
-                onClick={() => scrollToSection('location')} 
-                className="w-full text-left py-2 font-medium hover:text-dental-500 transition-colors"
+              <Link 
+                to="/nicola-pietrobon" 
+                className="w-full block text-left py-2 font-medium hover:text-dental-500 transition-colors"
               >
-                {t('navigation.location')}
-              </button>
+                Nicola Pietrobon
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/reto-michel" 
+                className="w-full block text-left py-2 font-medium hover:text-dental-500 transition-colors"
+              >
+                Reto Michel
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/for-dentists" 
+                className="w-full block text-left py-2 font-medium hover:text-dental-500 transition-colors"
+              >
+                {t('navigation.partner')}
+              </Link>
             </li>
             <li>
               <button 
@@ -181,22 +227,6 @@ const Header = () => {
                 className="w-full text-left py-2 font-medium hover:text-dental-500 transition-colors"
               >
                 {t('navigation.contact')}
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => scrollToSection('credo')} 
-                className="w-full text-left py-2 font-medium hover:text-dental-500 transition-colors"
-              >
-                {t('navigation.credo')}
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => scrollToSection('partners')} 
-                className="w-full text-left py-2 font-medium hover:text-dental-500 transition-colors"
-              >
-                {t('navigation.partner')}
               </button>
             </li>
           </ul>

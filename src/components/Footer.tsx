@@ -1,6 +1,7 @@
 
 import { useLanguage } from '../hooks/useLanguage';
 import { ArrowUpRight, Globe, Heart, MapPin, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t, language, setLanguage } = useLanguage();
@@ -87,35 +88,35 @@ const Footer = () => {
           <div>
             <h3 className="font-medium text-lg mb-6">{t('navigation.home')}</h3>
             <div className="space-y-2">
-              <button 
-                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              <Link 
+                to="/about"
                 className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center"
               >
                 <span className="text-dental-400 mr-2">›</span> {t('navigation.about')}
-              </button>
-              <button 
-                onClick={() => document.getElementById('location')?.scrollIntoView({ behavior: 'smooth' })}
+              </Link>
+              <Link
+                to="/nicola-pietrobon"
                 className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center"
               >
-                <span className="text-dental-400 mr-2">›</span> {t('navigation.location')}
-              </button>
+                <span className="text-dental-400 mr-2">›</span> Nicola Pietrobon
+              </Link>
+              <Link
+                to="/reto-michel"
+                className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center"
+              >
+                <span className="text-dental-400 mr-2">›</span> Reto Michel
+              </Link>
+              <Link
+                to="/for-dentists"
+                className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center"
+              >
+                <span className="text-dental-400 mr-2">›</span> {t('navigation.partner')}
+              </Link>
               <button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center"
               >
                 <span className="text-dental-400 mr-2">›</span> {t('navigation.contact')}
-              </button>
-              <button 
-                onClick={() => document.getElementById('credo')?.scrollIntoView({ behavior: 'smooth' })}
-                className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center"
-              >
-                <span className="text-dental-400 mr-2">›</span> {t('navigation.credo')}
-              </button>
-              <button 
-                onClick={() => document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' })}
-                className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center"
-              >
-                <span className="text-dental-400 mr-2">›</span> {t('navigation.partner')}
               </button>
             </div>
             
