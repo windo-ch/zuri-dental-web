@@ -3,6 +3,15 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { cn } from '@/lib/utils';
 import LanguageSwitcher from './LanguageSwitcher';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { ChevronDown } from 'lucide-react';
 
 const DesktopNavigation = () => {
   const { t } = useLanguage();
@@ -11,44 +20,45 @@ const DesktopNavigation = () => {
   return (
     <nav className="hidden md:flex items-center space-x-6">
       <ul className="flex space-x-6">
-        <li>
-          <Link 
-            to="/about" 
-            className={cn(
-              "font-medium text-sm transition-colors",
-              location.pathname === '/about' 
-                ? 'text-dental-500' 
-                : 'hover:text-dental-500'
-            )}
-          >
-            {t('navigation.about')}
-          </Link>
-        </li>
-        <li>
-          <Link 
-            to="/nicola-pietrobon" 
-            className={cn(
-              "font-medium text-sm transition-colors",
-              location.pathname === '/nicola-pietrobon' 
-                ? 'text-dental-500' 
-                : 'hover:text-dental-500'
-            )}
-          >
-            Nicola Pietrobon
-          </Link>
-        </li>
-        <li>
-          <Link 
-            to="/reto-michel" 
-            className={cn(
-              "font-medium text-sm transition-colors",
-              location.pathname === '/reto-michel' 
-                ? 'text-dental-500' 
-                : 'hover:text-dental-500'
-            )}
-          >
-            Reto Michel
-          </Link>
+        <li className="relative group">
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent px-0">
+                  <span className={cn(
+                    "font-medium text-sm transition-colors",
+                    location.pathname === '/about' 
+                      ? 'text-dental-500' 
+                      : 'hover:text-dental-500'
+                  )}>
+                    Pietrobon & Michel
+                  </span>
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="bg-white min-w-[200px]">
+                  <div className="p-2">
+                    <Link
+                      to="/about"
+                      className="block px-3 py-2 text-sm rounded hover:bg-dental-50 transition-colors"
+                    >
+                      {t('navigation.about')}
+                    </Link>
+                    <Link
+                      to="/nicola-pietrobon"
+                      className="block px-3 py-2 text-sm rounded hover:bg-dental-50 transition-colors"
+                    >
+                      Nicola Pietrobon
+                    </Link>
+                    <Link
+                      to="/reto-michel"
+                      className="block px-3 py-2 text-sm rounded hover:bg-dental-50 transition-colors"
+                    >
+                      Reto Michel
+                    </Link>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </li>
         <li>
           <Link 
@@ -60,7 +70,7 @@ const DesktopNavigation = () => {
                 : 'hover:text-dental-500'
             )}
           >
-            {t('navigation.partner')}
+            {t('navigation.dentists')}
           </Link>
         </li>
         <li>

@@ -18,9 +18,13 @@ const Footer = () => {
       <div className="container max-w-6xl mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-10 mb-12">
           <div>
-            <h3 className="font-display text-2xl mb-6">
-              Pietrobon <span className="text-dental-400">&</span> Michel
-            </h3>
+            <div className="mb-6">
+              <img 
+                src="/lovable-uploads/796794fe-b808-4402-b097-f7a6b0da65d8.png" 
+                alt="Pietrobon & Michel Logo" 
+                className="h-16 w-auto mb-4"
+              />
+            </div>
             <p className="text-dental-100 mb-6">
               Excellence in dental artistry since 1995. Premium dental technology services in Zurich, Switzerland.
             </p>
@@ -92,7 +96,7 @@ const Footer = () => {
                 to="/about"
                 className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center"
               >
-                <span className="text-dental-400 mr-2">›</span> {t('navigation.about')}
+                <span className="text-dental-400 mr-2">›</span> Pietrobon & Michel
               </Link>
               <Link
                 to="/nicola-pietrobon"
@@ -110,7 +114,7 @@ const Footer = () => {
                 to="/for-dentists"
                 className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center"
               >
-                <span className="text-dental-400 mr-2">›</span> {t('navigation.partner')}
+                <span className="text-dental-400 mr-2">›</span> {t('navigation.dentists')}
               </Link>
               <Link
                 to="/location"

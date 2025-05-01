@@ -7,9 +7,11 @@ const Logo = () => {
       to="/"
       className="flex items-center"
     >
-      <h2 className="font-display text-2xl font-medium text-dental-800">
-        Pietrobon <span className="text-dental-500">&</span> Michel
-      </h2>
+      <img 
+        src="/lovable-uploads/796794fe-b808-4402-b097-f7a6b0da65d8.png" 
+        alt="Pietrobon & Michel Logo" 
+        className="h-12 w-auto"
+      />
     </Link>
   );
 };
