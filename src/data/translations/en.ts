@@ -6,7 +6,8 @@ export const en = {
     location: 'Location',
     contact: 'Contact',
     credo: 'Credo & Testimonials',
-    partner: 'For Dentists'
+    partner: 'For Dentists',
+    patients: 'Patients'
   },
   hero: {
     title: 'Excellence in Dental Technology',
@@ -160,7 +161,7 @@ export const en = {
     },
     mission: {
       title: 'Our Mission',
-      content: 'At Pietrobon & Michel, our mission is to create dental restorations that not only meet the highest functional standards but also achieve natural aesthetics that enhance patients\' lives. We believe in collaborative relationships with dental professionals, working together to provide solutions that exceed expectations.'
+      content: "At Pietrobon & Michel, our mission is to create dental restorations that not only meet the highest functional standards but also achieve natural aesthetics that enhance patients' lives. We believe in collaborative relationships with dental professionals, working together to provide solutions that exceed expectations."
     },
     quote: 'Excellence is never an accident; it is the result of high intention, sincere effort, intelligent direction, skillful execution, and the vision to see obstacles as opportunities.'
   },
@@ -182,7 +183,7 @@ export const en = {
     },
     philosophy: {
       title: 'Professional Philosophy',
-      content: 'I believe that dental prosthetics is both a science and an art. Each restoration should not only function flawlessly but should also harmonize with the patient\'s facial aesthetics and personality. My approach combines traditional craftsmanship with modern technology to achieve results that look and feel completely natural.'
+      content: "I believe that dental prosthetics is both a science and an art. Each restoration should not only function flawlessly but should also harmonize with the patient's facial aesthetics and personality. My approach combines traditional craftsmanship with modern technology to achieve results that look and feel completely natural."
     },
     quote: 'True perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.'
   },
@@ -244,5 +245,47 @@ export const en = {
       title: 'Professional Inquiries',
       subtitle: 'For dental professionals interested in our services or partnership opportunities'
     }
+  },
+  patientPage: {
+    title: 'For Patients',
+    intro: 'Welcome to Pietrobon & Michel. As a patient referred to us by your dentist, you can expect exceptional quality dental work crafted with precision and care.',
+    visitUs: 'Visit Our Laboratory',
+    address: 'Address',
+    phone: 'Phone',
+    hours: 'Business Hours',
+    workingHours: 'Monday - Friday: 8:00 - 18:00, Saturday: By appointment only, Sunday: Closed',
+    directions: 'Getting Here',
+    parking: 'Parking',
+    publicTransport: 'Public Transport',
+    patientInfo: 'Important Patient Information',
+    infoItems: [
+      {
+        title: 'Referral Process',
+        description: 'All patient visits to our laboratory are by referral from your dentist. Your dentist will coordinate with us regarding your dental work.'
+      },
+      {
+        title: 'What to Expect',
+        description: 'During your visit, our master technicians will work with you to ensure the best possible match for your dental restorations.'
+      },
+      {
+        title: 'Preparation',
+        description: 'No special preparation is needed for your visit. Simply arrive at your scheduled appointment time.'
+      }
+    ],
+    appointmentTitle: 'Schedule Your Visit',
+    appointmentDesc: 'All visits to our laboratory are by appointment only. Please contact us to schedule your visit.'
+  },
+  contactPage: {
+    callUsTitle: "We're Here to Help You - Call Us",
+    visitUs: 'Visit Us',
+    callUs: 'Call Us',
+    phoneDesc: 'For appointments, inquiries, or to speak with our team directly.',
+    hours: 'Business Hours',
+    byAppointment: 'By appointment only',
+    closed: 'Closed',
+    findUs: 'Find Us',
+    transportation: 'Transportation Options',
+    publicTransport: 'Public Transport',
+    parking: 'Parking'
   }
 };

@@ -114,12 +114,30 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <button 
-                onClick={() => scrollToSection('contact')} 
-                className="font-medium text-sm hover:text-dental-500 transition-colors"
+              <Link 
+                to="/location" 
+                className={cn(
+                  "font-medium text-sm transition-colors",
+                  location.pathname === '/location' 
+                    ? 'text-dental-500' 
+                    : 'hover:text-dental-500'
+                )}
+              >
+                {t('navigation.patients')}
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/contact" 
+                className={cn(
+                  "font-medium text-sm transition-colors",
+                  location.pathname === '/contact' 
+                    ? 'text-dental-500' 
+                    : 'hover:text-dental-500'
+                )}
               >
                 {t('navigation.contact')}
-              </button>
+              </Link>
             </li>
           </ul>
 
@@ -222,12 +240,20 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <button 
-                onClick={() => scrollToSection('contact')} 
-                className="w-full text-left py-2 font-medium hover:text-dental-500 transition-colors"
+              <Link 
+                to="/location" 
+                className="w-full block text-left py-2 font-medium hover:text-dental-500 transition-colors"
+              >
+                {t('navigation.patients')}
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/contact" 
+                className="w-full block text-left py-2 font-medium hover:text-dental-500 transition-colors"
               >
                 {t('navigation.contact')}
-              </button>
+              </Link>
             </li>
           </ul>
 

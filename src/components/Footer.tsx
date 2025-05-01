@@ -45,12 +45,12 @@ const Footer = () => {
           <div>
             <h3 className="font-medium text-lg mb-6">{t('navigation.contact')}</h3>
             <div className="space-y-4">
-              <a href="#location" className="flex items-start space-x-3 group">
+              <Link to="/location" className="flex items-start space-x-3 group">
                 <MapPin className="text-dental-400 shrink-0 mt-1 group-hover:text-dental-300 transition-colors" size={18} />
                 <span className="text-dental-100 group-hover:text-white transition-colors">
                   {t('location.address')}
                 </span>
-              </a>
+              </Link>
               <a href="tel:+41442220565" className="flex items-start space-x-3 group">
                 <Phone className="text-dental-400 shrink-0 mt-1 group-hover:text-dental-300 transition-colors" size={18} />
                 <span className="text-dental-100 group-hover:text-white transition-colors">
@@ -112,12 +112,18 @@ const Footer = () => {
               >
                 <span className="text-dental-400 mr-2">›</span> {t('navigation.partner')}
               </Link>
-              <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              <Link
+                to="/location"
+                className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center"
+              >
+                <span className="text-dental-400 mr-2">›</span> {t('navigation.patients')}
+              </Link>
+              <Link
+                to="/contact"
                 className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center"
               >
                 <span className="text-dental-400 mr-2">›</span> {t('navigation.contact')}
-              </button>
+              </Link>
             </div>
             
             <div className="mt-8 pt-6 border-t border-dental-700">

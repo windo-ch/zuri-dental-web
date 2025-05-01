@@ -1,4 +1,3 @@
-
 export const it = {
   navigation: {
     home: 'Home',
@@ -6,7 +5,8 @@ export const it = {
     location: 'Dove Siamo',
     contact: 'Contatti',
     credo: 'Credo & Testimonianze',
-    partner: 'Per Dentisti'
+    partner: 'Per Dentisti',
+    patients: 'Pazienti'
   },
   hero: {
     title: 'Eccellenza in Tecnologia Dentale',
@@ -160,7 +160,7 @@ export const it = {
     },
     mission: {
       title: 'La Nostra Missione',
-      content: 'In Pietrobon & Michel, la nostra missione è creare restauri dentali che non solo soddisfino i più alti standard funzionali, ma raggiungano anche un\'estetica naturale che migliori la vita dei pazienti. Crediamo in relazioni collaborative con i professionisti dentali, lavorando insieme per fornire soluzioni che superino le aspettative.'
+      content: "In Pietrobon & Michel, la nostra missione è creare restauri dentali che non solo soddisfino i più alti standard funzionali, ma raggiungano anche un'estetica naturale che migliori la vita dei pazienti. Crediamo in relazioni collaborative con i professionisti dentali, lavorando insieme per fornire soluzioni che superino le aspettative."
     },
     quote: 'L\'eccellenza non è mai un caso; è il risultato di alta intenzione, sforzo sincero, direzione intelligente, esecuzione abile e la visione di vedere gli ostacoli come opportunità.'
   },
@@ -182,7 +182,7 @@ export const it = {
     },
     philosophy: {
       title: 'Filosofia Professionale',
-      content: 'Credo che la protesi dentale sia sia una scienza che un\'arte. Ogni restauro dovrebbe non solo funzionare perfettamente, ma anche armonizzarsi con l\'estetica facciale e la personalità del paziente. Il mio approccio combina l\'artigianato tradizionale con la tecnologia moderna per ottenere risultati che appaiono e si sentono completamente naturali.'
+      content: "Credo che la protesi dentale sia sia una scienza che un'arte. Ogni restauro dovrebbe non solo funzionare perfettamente, ma anche armonizzarsi con l'estetica facciale e la personalità del paziente. Il mio approccio combina l'artigianato tradizionale con la tecnologia moderna per ottenere risultati che appaiono e si sentono completamente naturali."
     },
     quote: 'La vera perfezione si raggiunge non quando non c\'è più nulla da aggiungere, ma quando non c\'è più nulla da togliere.'
   },
@@ -204,7 +204,7 @@ export const it = {
     },
     philosophy: {
       title: 'Filosofia Professionale',
-      content: 'Affronto ogni caso con un focus sull\'ingegneria di precisione e sui principi biomeccanici. Combinando competenza tecnica con una comprensione della fisiologia orale, mi impegno a creare restauri che forniscano funzione ottimale, longevità e integrazione estetica. Credo che l\'apprendimento continuo e l\'adattamento alle nuove tecnologie siano essenziali nel nostro campo in evoluzione.'
+      content: "Affronto ogni caso con un focus sull'ingegneria di precisione e sui principi biomeccanici. Combinando competenza tecnica con una comprensione della fisiologia orale, mi impegno a creare restauri che forniscano funzione ottimale, longevità e integrazione estetica. Credo che l'apprendimento continuo e l'adattamento alle nuove tecnologie siano essenziali nel nostro campo in evoluzione."
     },
     quote: 'Nei dettagli risiede la perfezione, e l\'eccellenza si raggiunge attraverso la padronanza di questi dettagli.'
   },
@@ -244,5 +244,47 @@ export const it = {
       title: 'Richieste Professionali',
       subtitle: 'Per i professionisti dentali interessati ai nostri servizi o alle opportunità di partnership'
     }
+  },
+  patientPage: {
+    title: 'Per i Pazienti',
+    intro: 'Benvenuti a Pietrobon & Michel. Come paziente indirizzato a noi dal tuo dentista, puoi aspettarti un lavoro dentale di qualità eccezionale realizzato con precisione e cura.',
+    visitUs: 'Visita il Nostro Laboratorio',
+    address: 'Indirizzo',
+    phone: 'Telefono',
+    hours: 'Orari di Apertura',
+    workingHours: 'Lunedì - Venerdì: 8:00 - 18:00, Sabato: Solo su appuntamento, Domenica: Chiuso',
+    directions: 'Come Raggiungerci',
+    parking: 'Parcheggio',
+    publicTransport: 'Trasporto Pubblico',
+    patientInfo: 'Informazioni Importanti per i Pazienti',
+    infoItems: [
+      {
+        title: 'Processo di Referral',
+        description: 'Tutte le visite dei pazienti al nostro laboratorio avvengono su referral del tuo dentista. Il tuo dentista coordinerà con noi riguardo al tuo lavoro dentale.'
+      },
+      {
+        title: 'Cosa Aspettarti',
+        description: 'Durante la tua visita, i nostri tecnici maestri lavoreranno con te per garantire la migliore corrispondenza possibile per i tuoi restauri dentali.'
+      },
+      {
+        title: 'Preparazione',
+        description: 'Non è necessaria alcuna preparazione speciale per la tua visita. Presentati semplicemente all\'orario dell\'appuntamento programmato.'
+      }
+    ],
+    appointmentTitle: 'Programma la Tua Visita',
+    appointmentDesc: 'Tutte le visite al nostro laboratorio sono solo su appuntamento. Contattaci per programmare la tua visita.'
+  },
+  contactPage: {
+    callUsTitle: "Siamo Qui per Aiutarti - Chiamaci",
+    visitUs: 'Vieni a Trovarci',
+    callUs: 'Chiamaci',
+    phoneDesc: 'Per appuntamenti, domande o per parlare direttamente con il nostro team.',
+    hours: 'Orari di Apertura',
+    byAppointment: 'Solo su appuntamento',
+    closed: 'Chiuso',
+    findUs: 'Dove Trovarci',
+    transportation: 'Opzioni di Trasporto',
+    publicTransport: 'Trasporto Pubblico',
+    parking: 'Parcheggio'
   }
 };
