@@ -2,6 +2,7 @@
 import { useLanguage } from '../hooks/useLanguage';
 import { ArrowUpRight, Globe, Heart, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
 const Footer = () => {
   const {
     t,
@@ -73,7 +74,7 @@ const Footer = () => {
             <h3 className="font-medium text-lg mb-6">{t('navigation.home')}</h3>
             <div className="space-y-2">
               <Link to="/about" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
-                <span className="text-dental-400 mr-2">›</span> Pietrobon & Michel
+                <span className="text-dental-400 mr-2">›</span> {t('navigation.about')}
               </Link>
               <Link to="/nicola-pietrobon" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
                 <span className="text-dental-400 mr-2">›</span> Nicola Pietrobon
@@ -85,7 +86,7 @@ const Footer = () => {
                 <span className="text-dental-400 mr-2">›</span> Dentists
               </Link>
               <Link to="/location" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
-                <span className="text-dental-400 mr-2">›</span> {t('navigation.patients')}
+                <span className="text-dental-400 mr-2">›</span> {t('navigation.location')}
               </Link>
               <Link to="/contact" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
                 <span className="text-dental-400 mr-2">›</span> {t('navigation.contact')}
@@ -97,8 +98,6 @@ const Footer = () => {
                 <span className="text-dental-400 mr-2">›</span> {t('footer.terms')}
               </Link>
             </div>
-            
-            
           </div>
         </div>
 
@@ -119,4 +118,5 @@ const Footer = () => {
       </div>
     </footer>;
 };
+
 export default Footer;
