@@ -1,3 +1,4 @@
+
 import { useLanguage } from '../hooks/useLanguage';
 import { ArrowUpRight, Globe, Heart, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -81,13 +82,19 @@ const Footer = () => {
                 <span className="text-dental-400 mr-2">›</span> Reto Michel
               </Link>
               <Link to="/for-dentists" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
-                <span className="text-dental-400 mr-2">›</span> {t('navigation.dentists')}
+                <span className="text-dental-400 mr-2">›</span> Dentists
               </Link>
               <Link to="/location" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
                 <span className="text-dental-400 mr-2">›</span> {t('navigation.patients')}
               </Link>
               <Link to="/contact" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
                 <span className="text-dental-400 mr-2">›</span> {t('navigation.contact')}
+              </Link>
+              <Link to="/privacy" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
+                <span className="text-dental-400 mr-2">›</span> {t('footer.privacy')}
+              </Link>
+              <Link to="/terms" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
+                <span className="text-dental-400 mr-2">›</span> {t('footer.terms')}
               </Link>
             </div>
             
@@ -101,12 +108,12 @@ const Footer = () => {
           </p>
           
           <div className="flex space-x-6">
-            <a href="#" className="text-dental-300 hover:text-white text-sm transition-colors">
+            <Link to="/privacy" className="text-dental-300 hover:text-white text-sm transition-colors">
               {t('footer.privacy')}
-            </a>
-            <a href="#" className="text-dental-300 hover:text-white text-sm transition-colors">
+            </Link>
+            <Link to="/terms" className="text-dental-300 hover:text-white text-sm transition-colors">
               {t('footer.terms')}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
