@@ -68,7 +68,7 @@ const DesktopNavigation = () => {
                 : 'hover:text-dental-500'
             )}
           >
-            {t('navigation.dentists')} 
+            Dentists 
           </Link>
         </li>
         <li>
