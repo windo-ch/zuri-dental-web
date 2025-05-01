@@ -3,11 +3,25 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 import { cn } from '@/lib/utils';
 
+interface TestimonialItem {
+  quote: string;
+  author: string;
+  position: string;
+}
+
+interface ValueItem {
+  title: string;
+  description: string;
+}
+
 const Testimonials = () => {
   const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
-  const testimonials = t('credo.testimonials.items') as any[];
-  const valuesItems = t('credo.values') as any[];
+  
+  // Properly type the items returned from translations
+  const testimonials = t('credo.testimonials.items') as TestimonialItem[];
+  const valuesItems = t('credo.values') as ValueItem[];
+  
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   
   useEffect(() => {
@@ -76,7 +90,7 @@ const Testimonials = () => {
 
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-8 animate-on-scroll">
-            {valuesItems.map((value: any, index: number) => (
+            {valuesItems.map((value: ValueItem, index: number) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-display text-dental-700 mb-3">{value.title}</h3>
                 <p className="text-muted-foreground">{value.description}</p>
@@ -102,7 +116,7 @@ const Testimonials = () => {
               
               {/* Testimonials */}
               <div className="relative overflow-hidden h-48">
-                {testimonials.map((testimonial: any, index: number) => (
+                {testimonials.map((testimonial: TestimonialItem, index: number) => (
                   <div 
                     key={index}
                     className={cn(
@@ -125,7 +139,7 @@ const Testimonials = () => {
               
               {/* Indicators */}
               <div className="flex justify-center space-x-2 mt-6">
-                {testimonials.map((_: any, index: number) => (
+                {testimonials.map((_: TestimonialItem, index: number) => (
                   <button
                     key={index}
                     className={cn(

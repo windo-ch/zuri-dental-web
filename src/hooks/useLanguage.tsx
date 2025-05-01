@@ -7,7 +7,7 @@ type LanguageType = 'en' | 'de' | 'it' | 'ru';
 type LanguageContextType = {
   language: LanguageType;
   setLanguage: (lang: LanguageType) => void;
-  t: (key: string) => string;
+  t: (key: string) => any; // Changed return type to any to accommodate arrays and objects
 };
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
@@ -39,13 +39,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem('language', lang);
   };
   
-  // Translation function
-  const t = (key: string): string => {
+  // Translation function that can return any type (string, array, or object)
+  const t = (key: string): any => {
     const keys = key.split('.');
-    let result = translations[language];
+    let result: any = translations[language];
     
     for (const k of keys) {
-      if (result && result[k]) {
+      if (result && result[k] !== undefined) {
         result = result[k];
       } else {
         console.warn(`Translation key not found: ${key} in language: ${language}`);
@@ -53,7 +53,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       }
     }
     
-    return result as string;
+    return result;
   };
 
   return (
