@@ -52,29 +52,7 @@ const ContactInfo = () => {
             </a>
           </div>
           
-          {/* Hours */}
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <div className="w-14 h-14 bg-dental-100 rounded-full flex items-center justify-center mb-6">
-              <Clock className="text-dental-500" size={28} />
-            </div>
-            <h3 className="font-display text-xl text-dental-800 mb-3">
-              {t('contactPage.hours')}
-            </h3>
-            <ul className="text-dental-600 space-y-2">
-              <li className="flex justify-between">
-                <span>Monday - Friday:</span>
-                <span>8:00 - 18:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Saturday:</span>
-                <span>{t('contactPage.byAppointment')}</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Sunday:</span>
-                <span>{t('contactPage.closed')}</span>
-              </li>
-            </ul>
-          </div>
+          {/* Hours - Removed the div that was selected for removal */}
         </div>
       </div>
     </section>
