@@ -24,7 +24,7 @@ const Hero = () => {
   }, []);
   
   return (
-    <section className="relative h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative h-screen flex items-center overflow-hidden">
       {/* Background with overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-dental-800/80 to-dental-900/80 z-10">
         <div 
@@ -94,7 +94,7 @@ const Hero = () => {
             aboutSection.scrollIntoView({ behavior: 'smooth' });
           }
         }}>
-          <span className="text-white/80 text-sm mb-2">Scroll</span>
+          <span className="text-white/80 text-sm mb-2">{t('hero.scroll')}</span>
           <div className="w-6 h-9 border-2 border-white/50 rounded-full flex justify-center">
             <div className="w-1.5 h-1.5 bg-white/80 rounded-full animate-float mt-2"></div>
           </div>
