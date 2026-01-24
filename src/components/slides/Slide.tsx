@@ -7,13 +7,15 @@ interface SlideProps {
   className?: string;
   background?: 'gradient' | 'white' | 'dental-light' | 'custom';
   id?: string;
+  'data-slide-index'?: number;
 }
 
 const Slide: React.FC<SlideProps> = ({ 
   children, 
   className, 
   background = 'white',
-  id 
+  id,
+  'data-slide-index': slideIndex
 }) => {
   const getBackgroundClass = () => {
     switch (background) {
@@ -46,6 +48,7 @@ const Slide: React.FC<SlideProps> = ({
         ease: [0.4, 0.0, 0.2, 1]
       }}
       style={{ willChange: 'opacity' }}
+      data-slide-index={slideIndex}
     >
       {children}
     </motion.section>

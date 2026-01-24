@@ -19,6 +19,11 @@ const ClosingSlide: React.FC = () => {
         className="absolute inset-0 w-full h-full object-cover opacity-30"
         poster="/assets/images/video-posters/zurich-pundm-poster.jpg"
         preload="metadata"
+        onError={(e) => {
+          console.error('Video error:', e);
+          // Hide video on error to prevent crashes
+          (e.target as HTMLVideoElement).style.display = 'none';
+        }}
       >
         <source src="/assets/zurich-pundm.webm" type="video/webm" />
       </video>
@@ -26,7 +31,7 @@ const ClosingSlide: React.FC = () => {
       {/* Overlay for better readability - same as entry slide */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/40" />
 
-      <div className="relative z-10 container max-w-4xl mx-auto px-4 text-center text-white h-full flex items-center justify-center py-8 md:py-12">
+      <div className="relative z-10 container max-w-4xl mx-auto px-4 text-center text-white h-full flex items-center justify-center pt-[18px] pb-8 md:py-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

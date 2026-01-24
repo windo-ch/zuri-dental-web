@@ -37,7 +37,7 @@ const SlideDemoPage: React.FC = () => {
 
         {/* About Slide - Team Cards */}
         <Slide background="dental-light" id="about">
-          <div className="container max-w-5xl mx-auto px-4 text-center h-full flex flex-col justify-center pt-4 pb-8 md:py-12">
+          <div className="container max-w-5xl mx-auto px-4 text-center h-full flex flex-col justify-center pt-[18px] pb-8 md:py-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -161,9 +161,18 @@ const SlideDemoPage: React.FC = () => {
             className="absolute inset-0 w-full h-full object-cover opacity-30"
             poster="/assets/images/video-posters/nic-reto-intro-poster.jpg"
             preload="metadata"
+            onError={(e) => {
+              console.error('Video error:', e);
+              // Hide video on error to prevent crashes
+              (e.target as HTMLVideoElement).style.display = 'none';
+            }}
             ref={(video) => {
               if (video) {
-                video.playbackRate = 0.5; // Slow down to half speed
+                try {
+                  video.playbackRate = 0.5; // Slow down to half speed
+                } catch (error) {
+                  console.error('Error setting playback rate:', error);
+                }
               }
             }}
           >
@@ -173,7 +182,7 @@ const SlideDemoPage: React.FC = () => {
           {/* Overlay for better readability - same as entry slide */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/40" />
 
-          <div className="container max-w-4xl mx-auto px-4 text-center relative z-10 h-full flex items-center justify-center pt-4 pb-8 md:py-12">
+          <div className="container max-w-4xl mx-auto px-4 text-center relative z-10 h-full flex items-center justify-center pt-[15px] pb-8 md:py-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}

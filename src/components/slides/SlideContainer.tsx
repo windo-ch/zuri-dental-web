@@ -38,42 +38,84 @@ const SlideContainer: React.FC<SlideContainerProps> = ({
 
   const [currentSlide, setCurrentSlide] = useState(getInitialSlide);
   const lastHashRef = React.useRef<string>('');
+  const isUpdatingHashRef = React.useRef<boolean>(false);
 
   // Update URL hash when slide changes internally (keyboard, mouse, etc.)
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const newHash = `#slide=${currentSlide}`;
-      const currentHash = window.location.hash;
-      if (currentHash !== newHash) {
-        lastHashRef.current = newHash;
-        window.history.replaceState(null, '', `${window.location.pathname}${newHash}`);
+    if (typeof window !== 'undefined' && !isUpdatingHashRef.current) {
+      try {
+        // Validate currentSlide is within bounds
+        if (currentSlide < 0 || currentSlide >= totalSlides) {
+          console.warn(`Invalid slide index: ${currentSlide}, resetting to 0`);
+          setCurrentSlide(0);
+          return;
+        }
+
+        const newHash = `#slide=${currentSlide}`;
+        const currentHash = window.location.hash;
+        if (currentHash !== newHash) {
+          isUpdatingHashRef.current = true;
+          lastHashRef.current = newHash;
+          window.history.replaceState(null, '', `${window.location.pathname}${newHash}`);
+          // Reset flag after a short delay to allow React Router to process
+          setTimeout(() => {
+            isUpdatingHashRef.current = false;
+          }, 150);
+        }
+      } catch (error) {
+        console.error('Error updating hash:', error);
+        isUpdatingHashRef.current = false;
+        // Fallback: try to recover by resetting to slide 0
+        try {
+          setCurrentSlide(0);
+        } catch (recoveryError) {
+          console.error('Error recovering from hash update failure:', recoveryError);
+        }
       }
     }
-  }, [currentSlide]);
+  }, [currentSlide, totalSlides]);
 
   // Watch for external hash changes (e.g., when navigating back with a hash from React Router)
   // Only update slide if hash changed externally (different from what we last synced)
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const hash = location.hash || window.location.hash;
-      
-      // Only update if this is an external change (hash differs from what we last set)
-      if (hash !== lastHashRef.current) {
-        const slideMatch = hash.match(/slide=(\d+)/);
-        if (slideMatch) {
-          const slideIndex = parseInt(slideMatch[1], 10);
-          if (slideIndex >= 0 && slideIndex < totalSlides) {
-            lastHashRef.current = hash;
-            setCurrentSlide(slideIndex);
+    if (typeof window !== 'undefined' && !isUpdatingHashRef.current) {
+      try {
+        const hash = location.hash || window.location.hash;
+        
+        // Only update if this is an external change (hash differs from what we last set)
+        if (hash !== lastHashRef.current && hash !== `#slide=${currentSlide}`) {
+          const slideMatch = hash.match(/slide=(\d+)/);
+          if (slideMatch) {
+            const slideIndex = parseInt(slideMatch[1], 10);
+            // Validate slide index before setting
+            if (slideIndex >= 0 && slideIndex < totalSlides && slideIndex !== currentSlide) {
+              lastHashRef.current = hash;
+              setCurrentSlide(slideIndex);
+            } else if (slideIndex >= totalSlides) {
+              // Invalid slide index - reset to 0
+              console.warn(`Invalid slide index in hash: ${slideIndex}, resetting to 0`);
+              lastHashRef.current = '#slide=0';
+              setCurrentSlide(0);
+            }
+          } else if (hash === '' && lastHashRef.current !== '' && currentSlide !== 0) {
+            // If hash is cleared externally, reset to 0
+            lastHashRef.current = '';
+            setCurrentSlide(0);
           }
-        } else if (hash === '' && lastHashRef.current !== '') {
-          // If hash is cleared externally, reset to 0
-          lastHashRef.current = '';
-          setCurrentSlide(0);
+        }
+      } catch (error) {
+        console.error('Error reading hash:', error);
+        // Fallback: reset to slide 0 on error
+        try {
+          if (currentSlide !== 0) {
+            setCurrentSlide(0);
+          }
+        } catch (recoveryError) {
+          console.error('Error recovering from hash read failure:', recoveryError);
         }
       }
     }
-  }, [location.hash, totalSlides]); // Removed currentSlide to prevent loops
+  }, [location.hash, totalSlides, currentSlide]);
 
   const goToSlide = useCallback((index: number) => {
     if (index >= 0 && index < totalSlides) {
@@ -173,29 +215,69 @@ const SlideContainer: React.FC<SlideContainerProps> = ({
     };
   }, [nextSlide, previousSlide]);
 
-  // Disable body scrolling when slides are active
+  // Pause videos in non-visible slides to prevent Safari memory issues
   useEffect(() => {
-    const originalOverflow = document.body.style.overflow;
-    const originalPosition = document.body.style.position;
-    const originalWidth = document.body.style.width;
-    const originalHeight = document.body.style.height;
-    
-    // Lock body scroll
-    document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.width = '100%';
-    document.body.style.height = '100%';
-    
-    // Reset scroll position to top
-    window.scrollTo(0, 0);
-    
-    return () => {
-      // Restore original styles
-      document.body.style.overflow = originalOverflow;
-      document.body.style.position = originalPosition;
-      document.body.style.width = originalWidth;
-      document.body.style.height = originalHeight;
-    };
+    try {
+      // Use requestAnimationFrame to ensure DOM is ready
+      const timeoutId = setTimeout(() => {
+        const allVideos = document.querySelectorAll('video');
+        allVideos.forEach((video) => {
+          try {
+            const slideElement = video.closest('[data-slide-index]');
+            if (slideElement) {
+              const slideIndex = parseInt(slideElement.getAttribute('data-slide-index') || '-1', 10);
+              if (slideIndex === currentSlide) {
+                // Play video in current slide (if not already playing)
+                if (video.paused && video.readyState >= 2) {
+                  video.play().catch(() => {
+                    // Ignore play errors (e.g., autoplay restrictions)
+                  });
+                }
+              } else {
+                // Pause videos in other slides
+                if (!video.paused) {
+                  video.pause();
+                }
+              }
+            } else {
+              // If video is not in a slide container, pause it for safety
+              if (!video.paused) {
+                video.pause();
+              }
+            }
+          } catch (videoError) {
+            // Silently handle individual video errors to prevent crashes
+          }
+        });
+      }, 100); // Small delay to ensure DOM is updated
+
+      return () => clearTimeout(timeoutId);
+    } catch (error) {
+      // Silently handle errors to prevent crashes
+    }
+  }, [currentSlide]);
+
+  // Disable body scrolling when slides are active (with Safari-safe approach)
+  useEffect(() => {
+    try {
+      const originalOverflow = document.body.style.overflow;
+      const originalPosition = document.body.style.position;
+      
+      // Safari-safe scroll lock - avoid fixed positioning which can cause issues
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'relative';
+      
+      // Reset scroll position to top
+      window.scrollTo(0, 0);
+      
+      return () => {
+        // Restore original styles
+        document.body.style.overflow = originalOverflow;
+        document.body.style.position = originalPosition;
+      };
+    } catch (error) {
+      console.error('Error managing body scroll:', error);
+    }
   }, []);
 
   // Touch navigation for mobile
@@ -279,8 +361,13 @@ const SlideContainer: React.FC<SlideContainerProps> = ({
       <AnimatePresence mode="wait" initial={false}>
         {React.Children.toArray(children).map((child, index) => 
           index === currentSlide ? (
-            <div key={index} style={{ willChange: 'transform, opacity' }}>
-              {child}
+            <div 
+              key={index} 
+              style={{ willChange: 'transform, opacity' }}
+            >
+              {React.cloneElement(child as React.ReactElement, {
+                'data-slide-index': index
+              })}
             </div>
           ) : null
         )}

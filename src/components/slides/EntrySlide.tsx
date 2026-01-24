@@ -56,6 +56,11 @@ const EntrySlide: React.FC = () => {
         className="absolute inset-0 w-full h-full object-cover opacity-20"
         poster="/assets/images/video-posters/zurich-pundm-poster.jpg"
         preload="metadata"
+        onError={(e) => {
+          console.error('Video error:', e);
+          // Hide video on error to prevent crashes
+          (e.target as HTMLVideoElement).style.display = 'none';
+        }}
       >
         <source src="/assets/zurich-pundm.webm" type="video/webm" />
       </video>
@@ -65,7 +70,7 @@ const EntrySlide: React.FC = () => {
 
       {/* Main Content */}
       <motion.div
-        className="relative z-10 max-w-lg mx-auto px-4 md:max-w-xl h-full flex items-center justify-center mt-4 md:mt-8"
+        className="relative z-10 max-w-lg mx-auto px-4 md:max-w-xl h-full flex items-center justify-center pt-[15px] md:mt-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
