@@ -54,8 +54,12 @@ const ForDentistsPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="w-20 h-20 bg-dental-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                <FileText className="w-10 h-10 text-white" />
+              <div className="w-20 h-20 bg-white rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden shadow-lg">
+                <img
+                  src="/assets/images/pietrobon-logo-animated.svg"
+                  alt="Pietrobon & Michel"
+                  className="w-full h-full object-contain p-2"
+                />
               </div>
               <h1 className="text-4xl md:text-5xl font-display font-bold text-dental-800 mb-4">
                 {t('slides.dentists.heroTitle')}

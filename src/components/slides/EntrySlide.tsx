@@ -70,7 +70,7 @@ const EntrySlide: React.FC = () => {
 
       {/* Main Content */}
       <motion.div
-        className="relative z-10 max-w-lg mx-auto px-4 md:max-w-xl h-full flex items-center justify-center pt-[15px] md:mt-8"
+        className="relative z-10 max-w-lg mx-auto px-4 md:max-w-xl h-full flex items-center justify-center -mt-8 md:mt-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

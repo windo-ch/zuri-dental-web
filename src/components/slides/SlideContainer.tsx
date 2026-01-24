@@ -257,27 +257,29 @@ const SlideContainer: React.FC<SlideContainerProps> = ({
     }
   }, [currentSlide]);
 
-  // Disable body scrolling when slides are active (with Safari-safe approach)
+  // Disable body scrolling when slides are active
   useEffect(() => {
-    try {
-      const originalOverflow = document.body.style.overflow;
-      const originalPosition = document.body.style.position;
-      
-      // Safari-safe scroll lock - avoid fixed positioning which can cause issues
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'relative';
-      
-      // Reset scroll position to top
-      window.scrollTo(0, 0);
-      
-      return () => {
-        // Restore original styles
-        document.body.style.overflow = originalOverflow;
-        document.body.style.position = originalPosition;
-      };
-    } catch (error) {
-      console.error('Error managing body scroll:', error);
-    }
+    const originalOverflow = document.body.style.overflow;
+    const originalPosition = document.body.style.position;
+    const originalWidth = document.body.style.width;
+    const originalHeight = document.body.style.height;
+    
+    // Lock body scroll
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+    document.body.style.height = '100%';
+    
+    // Reset scroll position to top
+    window.scrollTo(0, 0);
+    
+    return () => {
+      // Restore original styles
+      document.body.style.overflow = originalOverflow;
+      document.body.style.position = originalPosition;
+      document.body.style.width = originalWidth;
+      document.body.style.height = originalHeight;
+    };
   }, []);
 
   // Touch navigation for mobile

@@ -182,7 +182,7 @@ const SlideDemoPage: React.FC = () => {
           {/* Overlay for better readability - same as entry slide */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/40" />
 
-          <div className="container max-w-4xl mx-auto px-4 text-center relative z-10 h-full flex items-center justify-center pt-[15px] pb-8 md:py-12">
+          <div className="container max-w-4xl mx-auto px-4 text-center relative z-10 h-full flex items-center justify-center -mt-8 pb-8 md:py-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}

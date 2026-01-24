@@ -64,8 +64,12 @@ const VisitPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
-                <MapPin className="w-10 h-10 text-dental-600" />
+              <div className="w-20 h-20 bg-white rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg overflow-hidden">
+                <img
+                  src="/assets/images/pietrobon-logo-animated.svg"
+                  alt="Pietrobon & Michel"
+                  className="w-full h-full object-contain p-2"
+                />
               </div>
               <h1 className="text-4xl md:text-5xl font-display font-bold text-white mb-4 drop-shadow-lg">
                 {t('slides.patients.heroTitle')}
@@ -88,20 +92,20 @@ const VisitPage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               {/* Image extending to left, top, and bottom edges */}
-              <div className="absolute left-0 top-0 bottom-0 w-1/3 md:w-1/4 overflow-hidden">
+              <div className="absolute left-0 top-0 w-full md:w-1/4 h-48 md:h-auto md:bottom-0 overflow-hidden rounded-t-2xl md:rounded-t-none">
                 <img
                   src="/assets/images/core/Bahnhofstrasse-s.jpg"
                   alt="Bahnhofstrasse, Zürich"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-white/80 to-transparent"></div>
               </div>
               
-              <h2 className="text-3xl font-display font-bold text-dental-800 mb-8 text-center relative z-10">
+              <h2 className="text-3xl font-display font-bold text-dental-800 mb-8 text-center relative z-10 pt-56 md:pt-0">
                 {t('slides.patients.locationTitle')}
               </h2>
               
-              <div className="relative z-10 md:ml-[33.333%]">
+              <div className="relative z-10 md:ml-[25%]">
                 {/* Content */}
                 <div className="space-y-6">
                   {/* Address */}
