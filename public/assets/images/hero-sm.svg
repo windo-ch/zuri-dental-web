@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="960" viewBox="0 0 640 960">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a365d" />
+      <stop offset="100%" stop-color="#2c5282" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="960" fill="url(#gradient)" />
+  
+  <!-- Decorative elements resembling dental elements -->
+  <g opacity="0.05" fill="#FFFFFF">
+    <circle cx="120" cy="200" r="40" />
+    <circle cx="420" cy="150" r="60" />
+    <circle cx="320" cy="400" r="50" />
+    <circle cx="520" cy="350" r="35" />
+    <circle cx="180" cy="600" r="45" />
+    <circle cx="400" cy="700" r="30" />
+    <circle cx="300" cy="800" r="55" />
+  </g>
+  
+  <!-- Lines resembling dental tools -->
+  <g opacity="0.08" stroke="#FFFFFF" stroke-width="3">
+    <line x1="100" y1="100" x2="200" y2="180" />
+    <line x1="400" y1="200" x2="500" y2="300" />
+    <line x1="300" y1="500" x2="200" y2="600" />
+    <line x1="500" y1="650" x2="400" y2="750" />
+    <line x1="150" y1="800" x2="250" y2="900" />
+  </g>
+</svg>

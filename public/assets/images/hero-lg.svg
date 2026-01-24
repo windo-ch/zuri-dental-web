@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a365d" />
+      <stop offset="100%" stop-color="#2c5282" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#gradient)" />
+  
+  <!-- Decorative elements resembling dental elements -->
+  <g opacity="0.05" fill="#FFFFFF">
+    <circle cx="300" cy="200" r="100" />
+    <circle cx="700" cy="150" r="120" />
+    <circle cx="1200" cy="300" r="110" />
+    <circle cx="1600" cy="250" r="90" />
+    <circle cx="400" cy="500" r="80" />
+    <circle cx="900" cy="450" r="100" />
+    <circle cx="1400" cy="550" r="120" />
+    <circle cx="250" cy="750" r="95" />
+    <circle cx="750" cy="700" r="105" />
+    <circle cx="1300" cy="800" r="85" />
+    <circle cx="1700" cy="750" r="110" />
+    <circle cx="500" cy="950" r="100" />
+    <circle cx="1100" cy="900" r="115" />
+    <circle cx="1600" cy="1000" r="90" />
+  </g>
+  
+  <!-- Lines resembling dental tools -->
+  <g opacity="0.08" stroke="#FFFFFF" stroke-width="4">
+    <line x1="200" y1="100" x2="400" y2="250" />
+    <line x1="600" y1="150" x2="800" y2="300" />
+    <line x1="1000" y1="200" x2="1200" y2="350" />
+    <line x1="1400" y1="150" x2="1600" y2="250" />
+    <line x1="1800" y1="200" x2="1600" y2="350" />
+    <line x1="1400" y1="400" x2="1200" y2="550" />
+    <line x1="1000" y1="450" x2="800" y2="600" />
+    <line x1="600" y1="500" x2="400" y2="650" />
+    <line x1="200" y1="550" x2="400" y2="700" />
+    <line x1="600" y1="600" x2="800" y2="750" />
+    <line x1="1000" y1="650" x2="1200" y2="800" />
+    <line x1="1400" y1="700" x2="1600" y2="850" />
+    <line x1="1800" y1="750" x2="1600" y2="900" />
+    <line x1="1400" y1="800" x2="1200" y2="950" />
+    <line x1="1000" y1="850" x2="800" y2="1000" />
+  </g>
+</svg> 

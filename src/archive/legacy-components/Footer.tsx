@@ -1,0 +1,122 @@
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Globe, Heart, ArrowUpRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+interface FooterLink {
+  label: string;
+  href: string;
+  internal?: boolean;
+}
+
+const Footer = () => {
+  const { t, i18n } = useTranslation();
+  const currentYear = new Date().getFullYear();
+  const currentLang = i18n.language.split('-')[0];
+  
+  const languages = [{
+    code: 'en',
+    label: 'English'
+  }, {
+    code: 'de',
+    label: 'Deutsch'
+  }, {
+    code: 'it',
+    label: 'Italiano'
+  }, {
+    code: 'ru',
+    label: 'Русский'
+  }];
+  
+  return <footer className="bg-dental-800 text-white pt-16 pb-8">
+      <div className="container max-w-6xl mx-auto px-4">
+        <div className="grid md:grid-cols-3 gap-10 mb-12">
+          <div>
+            <div className="mb-6">
+              <img src="/assets/pundm-logo.png" alt="Pietrobon & Michel Logo" className="h-16 w-auto mb-4" />
+            </div>
+            <p className="text-dental-100 mb-6">
+              Excellence in dental artistry since 1995. Premium dental technology services in Zurich, Switzerland.
+            </p>
+            
+            <div className="flex space-x-4 mt-6">
+              {/* Social media placeholder icons */}
+              {['#', '#', '#'].map((_, index) => <a key={index} href="#" className="w-8 h-8 flex items-center justify-center rounded-full bg-dental-700 hover:bg-dental-500 transition-colors" aria-label={`Social media link ${index + 1}`}>
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10z" />
+                  </svg>
+                </a>)}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-medium text-lg mb-6">{t('navigation.contact')}</h3>
+            <div className="space-y-4">
+              <Link to="/for-patients" className="flex items-start space-x-3 group">
+                <MapPin className="text-dental-400 shrink-0 mt-1 group-hover:text-dental-300 transition-colors" size={18} />
+                <span className="text-dental-100 group-hover:text-white transition-colors">
+                  {t('location.address')}
+                </span>
+              </Link>
+              <a href="tel:+41442220565" className="flex items-start space-x-3 group">
+                <Phone className="text-dental-400 shrink-0 mt-1 group-hover:text-dental-300 transition-colors" size={18} />
+                <span className="text-dental-100 group-hover:text-white transition-colors">
+                  {t('contact.phoneNumber')}
+                </span>
+              </a>
+              
+              <div className="pt-4">
+                <p className="text-sm text-dental-300 mb-2">Select Language</p>
+                <div className="flex flex-wrap gap-2">
+                  {languages.map(lang => <button key={lang.code} onClick={() => i18n.changeLanguage(lang.code)} className={`px-2 py-1 text-xs rounded transition-colors ${currentLang === lang.code ? 'bg-dental-500 text-white' : 'bg-dental-700 text-dental-200 hover:bg-dental-600'}`}>
+                      {lang.label}
+                    </button>)}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-medium text-lg mb-6">{t('navigation.home')}</h3>
+            <div className="space-y-2">
+              <Link to="/about" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
+                <span className="text-dental-400 mr-2">›</span> {t('navigation.about')}
+              </Link>
+              <Link to="/nicola-pietrobon" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
+                <span className="text-dental-400 mr-2">›</span> Nicola Pietrobon
+              </Link>
+              <Link to="/reto-michel" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
+                <span className="text-dental-400 mr-2">›</span> Reto Michel
+              </Link>
+              <Link to="/for-dentists" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
+                <span className="text-dental-400 mr-2">›</span> {t('navigation.partner')}
+              </Link>
+              <Link to="/for-patients" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
+                <span className="text-dental-400 mr-2">›</span> {t('navigation.forPatients', 'For Patients')}
+              </Link>
+              <Link to="/contact" className="block text-dental-200 hover:text-white transition-colors hover:translate-x-1 flex items-center">
+                <span className="text-dental-400 mr-2">›</span> {t('navigation.contact')}
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-8 border-t border-dental-700 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-dental-300 text-sm mb-4 md:mb-0 flex items-center">
+            {t('footer.rights')}  
+          </p>
+          
+          <div className="flex space-x-6">
+            <Link to="/privacy" className="text-dental-300 hover:text-white text-sm transition-colors">
+              {t('footer.privacy')}
+            </Link>
+            <Link to="/terms" className="text-dental-300 hover:text-white text-sm transition-colors">
+              {t('footer.terms')}
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>;
+};
+
+export default Footer;

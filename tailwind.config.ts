@@ -39,6 +39,9 @@ export default {
           '900': '#264563',
           '950': '#192c41',
         },
+        pietrobon: {
+          'blue': '#1c4c84',
+        },
         primary: {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",

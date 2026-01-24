@@ -1,48 +1,76 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LanguageProvider } from "./hooks/useLanguage";
-import Index from "./pages/Index";
-import AboutPage from "./pages/AboutPage";
-import NicolaPage from "./pages/NicolaPage";
-import RetoPage from "./pages/RetoPage";
-import DentistsPage from "./pages/DentistsPage";
-import LocationPage from "./pages/LocationPage";
-import ContactPage from "./pages/ContactPage";
-import PrivacyPage from "./pages/PrivacyPage";
-import TermsPage from "./pages/TermsPage";
-import NotFound from "./pages/NotFound";
-import ScrollToTop from "./components/ScrollToTop";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { HelmetProvider } from "react-helmet-async";
+import LoadingSpinner from "./components/LoadingSpinner";
+import CookieConsentAdvanced from "./components/CookieConsentAdvanced";
+
+// Lazy load all page components
+const SlideDemoPage = lazy(() => import("./pages/SlideDemoPage"));
+const ForDentistsPage = lazy(() => import("./pages/ForDentistsPage"));
+const VisitPage = lazy(() => import("./pages/VisitPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const TestimonialsPage = lazy(() => import("./pages/TestimonialsPage"));
+const NicolaPietrobonPage = lazy(() => import("./pages/NicolaPietrobonPage"));
+const RetoMichelPage = lazy(() => import("./pages/RetoMichelPage"));
+const HotelsPage = lazy(() => import("./pages/HotelsPage"));
+const ParkingPage = lazy(() => import("./pages/ParkingPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
+const TermsPage = lazy(() => import("./pages/TermsPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
 
 const queryClient = new QueryClient();
 
+// Loading component with a nice UI
+const PageLoading = () => (
+  <div className="min-h-screen flex items-center justify-center">
+    <LoadingSpinner size="lg" />
+  </div>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <LanguageProvider>
+    <HelmetProvider>
       <TooltipProvider>
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/nicola-pietrobon" element={<NicolaPage />} />
-            <Route path="/reto-michel" element={<RetoPage />} />
-            <Route path="/for-dentists" element={<DentistsPage />} />
-            <Route path="/location" element={<LocationPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/privacy" element={<PrivacyPage />} />
-            <Route path="/terms" element={<TermsPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={<PageLoading />}>
+            <ScrollToTop />
+            <Routes>
+              {/* Main Slide Site */}
+              <Route path="/" element={<SlideDemoPage />} />
+              
+              {/* Page Routes */}
+              <Route path="/for-dentists" element={<ForDentistsPage />} />
+              <Route path="/visit" element={<VisitPage />} />
+              {/* Redirect for backward compatibility */}
+              <Route path="/for-patients" element={<Navigate to="/visit" replace />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/testimonials" element={<TestimonialsPage />} />
+              <Route path="/nicola-pietrobon" element={<NicolaPietrobonPage />} />
+              <Route path="/reto-michel" element={<RetoMichelPage />} />
+              <Route path="/hotels" element={<HotelsPage />} />
+              <Route path="/parking" element={<ParkingPage />} />
+              
+              {/* Essential Pages */}
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              
+              {/* 404 */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+          <CookieConsentAdvanced />
         </BrowserRouter>
       </TooltipProvider>
-    </LanguageProvider>
+    </HelmetProvider>
   </QueryClientProvider>
 );
 

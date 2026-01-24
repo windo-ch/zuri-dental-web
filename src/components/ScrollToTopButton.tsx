@@ -1,12 +1,12 @@
-
 import { useEffect, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from 'react-i18next';
+import { Button } from './ui/button';
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const toggleVisibility = () => {
