@@ -63,6 +63,20 @@ const App = () => (
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
               
+              {/* Old German URL Redirects */}
+              <Route path="/de/start" element={<Navigate to="/" replace />} />
+              <Route path="/de/start/" element={<Navigate to="/" replace />} />
+              <Route path="/de/ueber-pietrobon-und-michel" element={<Navigate to="/about" replace />} />
+              <Route path="/de/ueber-pietrobon-und-michel/" element={<Navigate to="/about" replace />} />
+              <Route path="/de/ueber-pietrobon-und-michel/nicola-pietrobon" element={<Navigate to="/nicola-pietrobon" replace />} />
+              <Route path="/de/ueber-pietrobon-und-michel/nicola-pietrobon/" element={<Navigate to="/nicola-pietrobon" replace />} />
+              <Route path="/de/ueber-pietrobon-und-michel/reto-michel" element={<Navigate to="/reto-michel" replace />} />
+              <Route path="/de/ueber-pietrobon-und-michel/reto-michel/" element={<Navigate to="/reto-michel" replace />} />
+              <Route path="/de/partner-ger" element={<Navigate to="/for-dentists" replace />} />
+              <Route path="/de/partner-ger/" element={<Navigate to="/for-dentists" replace />} />
+              <Route path="/de/standort" element={<Navigate to="/visit" replace />} />
+              <Route path="/de/standort/" element={<Navigate to="/visit" replace />} />
+              
               {/* 404 */}
               <Route path="*" element={<NotFound />} />
             </Routes>

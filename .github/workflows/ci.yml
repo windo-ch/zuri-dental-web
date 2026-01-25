@@ -11,40 +11,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v4
     
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
         
     - name: Install dependencies
       run: npm ci
       
-    - name: Lint
+    - name: Run linter
       run: npm run lint
       
-    - name: Test
+    - name: Run tests
       run: npm test
+      continue-on-error: false
       
-    - name: Build
+    - name: Build application
       run: npm run build
       
     - name: Upload build artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: build
         path: dist/
+        retention-days: 7
         
   deploy:
     needs: build-and-test
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
     - name: Download build artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: build
         path: dist/
@@ -53,7 +61,6 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: dist
-        # Use a GitHub secret for the token
         token: ${{ secrets.GITHUB_TOKEN }}
-        # Use "false" in a real project to avoid cleaning all old files
-        clean: true 
+        clean: true
+        single-commit: true 

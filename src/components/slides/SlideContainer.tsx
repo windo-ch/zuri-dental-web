@@ -152,7 +152,7 @@ const SlideContainer: React.FC<SlideContainerProps> = ({
           event.preventDefault();
           goToSlide(totalSlides - 1);
           break;
-        default:
+        default: {
           // Number keys for direct slide access
           const slideNumber = parseInt(event.key);
           if (slideNumber >= 1 && slideNumber <= totalSlides) {
@@ -160,6 +160,7 @@ const SlideContainer: React.FC<SlideContainerProps> = ({
             goToSlide(slideNumber - 1);
           }
           break;
+        }
       }
     };
 

@@ -4,15 +4,19 @@ import FloatingBackButton from '../components/FloatingBackButton';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import SlideNavBarBottom from '../components/slides/SlideNavBar';
 import { SEO } from '@/components/SEO';
+import { createLocalBusinessStructuredData } from '@/lib/structuredData';
 
 const ContactPage = () => {
   const { t } = useTranslation();
+  const description = t('seo.contact.description');
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-dental-50 via-white to-white">
       <SEO 
         title={t('seo.contact.title')}
-        description={t('seo.contact.description')}
+        description={description}
+        structuredData={createLocalBusinessStructuredData(description, 'https://pietrobonundmichel.ch/contact')}
+        keywords={t('seo.contact.keywords', 'dental laboratory Zurich, contact, appointment, dental technology Switzerland')}
       />
       <FloatingBackButton />
       

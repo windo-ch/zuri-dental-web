@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import FloatingBackButton from '@/components/FloatingBackButton';
 import SlideNavBarBottom from '@/components/slides/SlideNavBar';
 import { SEO } from '@/components/SEO';
+import { createPersonStructuredData } from '@/lib/structuredData';
 
 const NicolaPietrobonPage: React.FC = () => {
   const { t } = useTranslation();
@@ -20,12 +21,24 @@ const NicolaPietrobonPage: React.FC = () => {
     t('nicolaPage.specializations.item8')
   ];
 
+  const title = t('nicolaPage.title');
+  const description = t('seo.nicola.description');
+  const jobTitle = t('nicolaPage.jobTitle', 'Dental Technician & Co-Founder');
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-dental-50 via-white to-white">
       <SEO 
         title={t('seo.nicola.title')}
-        description={t('seo.nicola.description')}
+        description={description}
+        type="profile"
+        structuredData={createPersonStructuredData(
+          title,
+          jobTitle,
+          description,
+          'https://pietrobonundmichel.ch/assets/images/core/about-nic.jpg',
+          'https://pietrobonundmichel.ch/nicola-pietrobon'
+        )}
+        keywords={t('seo.nicola.keywords', 'Nicola Pietrobon, dental technician, Zurich, dental technology, co-founder')}
       />
       <FloatingBackButton />
       

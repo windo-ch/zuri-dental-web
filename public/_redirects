@@ -1,1 +1,15 @@
 /*    /index.html   200
+
+# Old German URL Redirects
+/de/start / 301
+/de/start/ / 301
+/de/ueber-pietrobon-und-michel /about 301
+/de/ueber-pietrobon-und-michel/ /about 301
+/de/ueber-pietrobon-und-michel/nicola-pietrobon /nicola-pietrobon 301
+/de/ueber-pietrobon-und-michel/nicola-pietrobon/ /nicola-pietrobon 301
+/de/ueber-pietrobon-und-michel/reto-michel /reto-michel 301
+/de/ueber-pietrobon-und-michel/reto-michel/ /reto-michel 301
+/de/partner-ger /for-dentists 301
+/de/partner-ger/ /for-dentists 301
+/de/standort /visit 301
+/de/standort/ /visit 301

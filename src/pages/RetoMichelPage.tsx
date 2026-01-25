@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import FloatingBackButton from '@/components/FloatingBackButton';
 import SlideNavBarBottom from '@/components/slides/SlideNavBar';
 import { SEO } from '@/components/SEO';
+import { createPersonStructuredData } from '@/lib/structuredData';
 
 const RetoMichelPage: React.FC = () => {
   const { t } = useTranslation();
@@ -24,10 +25,24 @@ const RetoMichelPage: React.FC = () => {
     t('retoPage.certifications.item4')
   ];
 
+  const title = t('retoPage.title');
+  const description = t('seo.reto.description');
+  const jobTitle = t('retoPage.jobTitle', 'Dental Technician & Co-Founder');
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-dental-50 via-white to-white">
       <SEO 
         title={t('seo.reto.title')}
+        description={description}
+        type="profile"
+        structuredData={createPersonStructuredData(
+          title,
+          jobTitle,
+          description,
+          'https://pietrobonundmichel.ch/assets/images/core/about-reto.jpg',
+          'https://pietrobonundmichel.ch/reto-michel'
+        )}
+        keywords={t('seo.reto.keywords', 'Reto Michel, dental technician, Zurich, dental technology, co-founder')}
         description={t('seo.reto.description')}
       />
       <FloatingBackButton />

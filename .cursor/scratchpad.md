@@ -469,6 +469,75 @@ The current site has a sophisticated hero section with:
 
 ## Executor's Feedback or Assistance Requests
 
+### ✅ CI WORKFLOW UPDATE COMPLETED
+
+**Client Request**: Update the CI workflow, then optimize SEO and add structured data.
+
+**Changes Made to CI Workflow**:
+1. **Updated Action Versions**: 
+   - Upgraded `actions/checkout` from v3 to v4
+   - Upgraded `actions/setup-node` from v3 to v4
+   - Upgraded `actions/upload-artifact` from v4 to v4 (already latest)
+   - Upgraded `actions/download-artifact` from v3 to v4
+2. **Node.js Version**: Updated from Node.js 18 to Node.js 20 for better performance and security
+3. **Improved Step Names**: Made step names more descriptive and professional
+4. **Enhanced Deployment**:
+   - Added proper permissions block for GitHub Pages deployment
+   - Added `single-commit: true` for cleaner git history
+   - Improved conditional logic for deployment (only on push to main)
+5. **Artifact Management**: Added `retention-days: 7` to manage artifact storage
+6. **Better Error Handling**: Added `continue-on-error: false` to ensure tests must pass
+
+**Result**: The CI workflow is now using the latest action versions, Node.js 20, and includes improved deployment configuration and artifact management.
+
+**Next Steps**: Proceeding with SEO optimization and structured data enhancements.
+
+### ✅ SEO OPTIMIZATION AND STRUCTURED DATA ENHANCEMENTS COMPLETED
+
+**Client Request**: Optimize SEO and add structured data after updating CI workflow.
+
+**Changes Made**:
+
+1. **Enhanced SEO Component** (`src/components/SEO.tsx`):
+   - Added support for multiple structured data objects (arrays)
+   - Added new props: `keywords`, `author`, `noindex`, `nofollow`, `type`
+   - Enhanced meta tags with robots directives, geo-location, format detection
+   - Improved Open Graph and Twitter Card support
+   - Better type safety with schema-dts types
+   - Default structured data now includes both LocalBusiness and Organization schemas for better SEO
+
+2. **Created Structured Data Utilities** (`src/lib/structuredData.ts`):
+   - `createLocalBusinessStructuredData()` - For business/contact pages
+   - `createPersonStructuredData()` - For team member profile pages
+   - `createServiceStructuredData()` - For service pages
+   - `createBreadcrumbStructuredData()` - For navigation breadcrumbs
+   - `createFAQStructuredData()` - For FAQ pages
+
+3. **Updated Key Pages with Enhanced Structured Data**:
+   - **ContactPage**: Uses LocalBusiness structured data with keywords
+   - **NicolaPietrobonPage**: Uses Person structured data with profile type
+   - **RetoMichelPage**: Uses Person structured data with profile type
+   - **ForDentistsPage**: Uses both LocalBusiness and Service structured data
+
+4. **SEO Improvements**:
+   - Added robots meta tags for better search engine control
+   - Added geo-location meta tags for local SEO
+   - Enhanced Open Graph tags with article support
+   - Added keywords meta tags where appropriate
+   - Improved canonical URL handling
+   - Better hreflang tag support for multi-language SEO
+
+**Result**: The site now has comprehensive SEO optimization with proper structured data for different page types (LocalBusiness, Person, Service), improved meta tags, and better search engine visibility. All structured data follows Schema.org standards and is validated.
+
+4. **Fixed Linting Issues**:
+   - Updated lint script in package.json to work with new ESLint flat config format
+   - Fixed TypeScript `any` types in SEO.tsx by creating proper `StructuredDataType` union type
+   - Fixed TypeScript `any` types in structuredData.ts by creating proper interfaces for BreadcrumbList and FAQPage
+   - Fixed case declaration issue in SlideContainer.tsx by wrapping const in braces
+   - Verified build completes successfully
+
+**Final Status**: All changes are complete, linting errors in modified files are fixed, and the build passes successfully. The CI workflow is ready to use the updated lint command.
+
 ### ✅ HOMEPAGE CARD UPDATE COMPLETED
 
 **Client Request**: Update the homepage card to use Pietrobon blue (#1c4c84) background with white-on-transparent logo.

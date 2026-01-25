@@ -7,9 +7,12 @@ import SlideNavBarBottom from '@/components/slides/SlideNavBar';
 import SlideFooter from '@/components/slides/SlideFooter';
 import HolidaySchedule from '@/components/HolidaySchedule';
 import { SEO } from '@/components/SEO';
+import { createServiceStructuredData, createLocalBusinessStructuredData } from '@/lib/structuredData';
 
 const ForDentistsPage: React.FC = () => {
   const { t } = useTranslation();
+  
+  const description = t('seo.dentists.description');
   
   const labForms = [
     { 
@@ -40,7 +43,17 @@ const ForDentistsPage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-dental-50 via-white to-white">
       <SEO 
         title={t('seo.dentists.title')}
-        description={t('seo.dentists.description')}
+        description={description}
+        structuredData={[
+          createLocalBusinessStructuredData(description, 'https://pietrobonundmichel.ch/for-dentists'),
+          createServiceStructuredData(
+            t('seo.dentists.serviceName', 'Dental Laboratory Services for Dentists'),
+            description,
+            'Dental Technology Services',
+            'https://pietrobonundmichel.ch/for-dentists'
+          )
+        ]}
+        keywords={t('seo.dentists.keywords', 'dental laboratory services, dentists, dental technology, Zurich, Switzerland')}
       />
       <FloatingBackButton />
 
@@ -151,6 +164,20 @@ const ForDentistsPage: React.FC = () => {
               })}
             </div>
           </div>
+        </section>
+
+        {/* Team Image Section with Fade Effect */}
+        <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden bg-white">
+          {/* Background Image - positioned to show top edge */}
+          <div 
+            className="absolute inset-0 bg-cover bg-top bg-no-repeat"
+            style={{
+              backgroundImage: 'url(/assets/images/team/nic-lab.jpg)',
+            }}
+          />
+          
+          {/* Gradient Overlay - Fade to white at bottom */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white" />
         </section>
 
         {/* Services Section */}
