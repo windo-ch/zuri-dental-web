@@ -67,11 +67,17 @@ const SlideDemoPage: React.FC = () => {
                 >
                   <div className="flex items-center gap-3 md:flex-col md:items-center">
                     <div className="w-16 h-16 md:w-24 md:h-24 flex-shrink-0">
-                      <img
-                        src="/assets/images/core/about-nic.jpg"
-                        alt={t('about.nicolaTitle')}
-                        className="w-full h-full rounded-full object-cover shadow-lg border-2 border-white"
-                      />
+                      <picture>
+                        <source srcSet="/assets/images/core/about-nic.webp" type="image/webp" />
+                        <img
+                          src="/assets/images/core/about-nic.jpg"
+                          alt={t('about.nicolaTitle')}
+                          className="w-full h-full rounded-full object-cover shadow-lg border-2 border-white"
+                          width={200}
+                          height={200}
+                          loading="lazy"
+                        />
+                      </picture>
                     </div>
                     <div className="flex-1 flex items-center justify-between gap-2 md:flex-col md:items-center md:mt-3 md:mb-4">
                       <h3 className="text-base md:text-xl font-display font-bold text-dental-800 md:mb-6">
@@ -97,11 +103,17 @@ const SlideDemoPage: React.FC = () => {
                 >
                   <div className="flex items-center gap-3 md:flex-col md:items-center">
                     <div className="w-16 h-16 md:w-24 md:h-24 flex-shrink-0">
-                      <img
-                        src="/assets/images/core/about-reto.jpg"
-                        alt={t('about.retoTitle')}
-                        className="w-full h-full rounded-full object-cover shadow-lg border-2 border-white"
-                      />
+                      <picture>
+                        <source srcSet="/assets/images/core/about-reto.webp" type="image/webp" />
+                        <img
+                          src="/assets/images/core/about-reto.jpg"
+                          alt={t('about.retoTitle')}
+                          className="w-full h-full rounded-full object-cover shadow-lg border-2 border-white"
+                          width={200}
+                          height={200}
+                          loading="lazy"
+                        />
+                      </picture>
                     </div>
                     <div className="flex-1 flex items-center justify-between gap-2 md:flex-col md:items-center md:mt-3 md:mb-4">
                       <h3 className="text-base md:text-xl font-display font-bold text-dental-800 md:mb-6">

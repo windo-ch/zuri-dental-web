@@ -33,7 +33,7 @@ const RetoMichelPage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-dental-50 via-white to-white">
       <SEO 
         title={t('seo.reto.title')}
-        description={description}
+        description={t('seo.reto.description')}
         type="profile"
         structuredData={createPersonStructuredData(
           title,
@@ -43,7 +43,6 @@ const RetoMichelPage: React.FC = () => {
           'https://pietrobonundmichel.ch/reto-michel'
         )}
         keywords={t('seo.reto.keywords', 'Reto Michel, dental technician, Zurich, dental technology, co-founder')}
-        description={t('seo.reto.description')}
       />
       <FloatingBackButton />
       

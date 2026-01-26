@@ -170,8 +170,13 @@ export const it = {
     save: 'Salva Preferenze'
   },
   errors: {
-    pageNotFound: 'Oops! Pagina non trovata',
+    pageNotFound: 'Pagina non trovata',
+    pageNotFoundDescription: 'La pagina che stai cercando non è stata trovata. Potrebbe essere stata spostata o eliminata.',
     returnHome: 'Torna alla Home',
+    visitLab: 'Visita il nostro laboratorio',
+    popularPages: 'Pagine popolari',
+    '404Title': '404 - Pagina non trovata | Pietrobon & Michel',
+    '404Description': 'La pagina che stai cercando non è stata trovata. Torna alla nostra homepage o esplora i nostri servizi di tecnologia dentale.',
     somethingWentWrong: 'Qualcosa è andato storto',
     tryAgain: 'Riprova più tardi'
   },

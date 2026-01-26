@@ -95,12 +95,17 @@ const EntrySlide: React.FC = () => {
           
           {/* Logo */}
           <div className="mb-2 md:mb-3 w-full text-center">
-            <img
-              src="/assets/images/pietobon-michel-logo2025-w-v2.png"
-              alt="Pietrobon & Michel - Excellence in Dental Technology"
-              className="w-3/4 h-auto mx-auto"
-              draggable={false}
-            />
+            <picture>
+              <source srcSet="/assets/images/pietobon-michel-logo2025-w-v2.webp" type="image/webp" />
+              <img
+                src="/assets/images/pietobon-michel-logo2025-w-v2.png"
+                alt="Pietrobon & Michel - Excellence in Dental Technology"
+                className="w-3/4 h-auto mx-auto"
+                width={400}
+                height={200}
+                draggable={false}
+              />
+            </picture>
           </div>
 
           {/* Subtitle */}

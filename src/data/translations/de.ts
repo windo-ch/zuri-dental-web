@@ -170,8 +170,13 @@ export const de = {
     save: 'Einstellungen speichern'
   },
   errors: {
-    pageNotFound: 'Oops! Seite nicht gefunden',
+    pageNotFound: 'Seite nicht gefunden',
+    pageNotFoundDescription: 'Die gesuchte Seite konnte nicht gefunden werden. Sie wurde möglicherweise verschoben oder gelöscht.',
     returnHome: 'Zurück zur Startseite',
+    visitLab: 'Labor besuchen',
+    popularPages: 'Beliebte Seiten',
+    '404Title': '404 - Seite nicht gefunden | Pietrobon & Michel',
+    '404Description': 'Die gesuchte Seite konnte nicht gefunden werden. Kehren Sie zu unserer Startseite zurück oder erkunden Sie unsere zahntechnischen Dienstleistungen.',
     somethingWentWrong: 'Etwas ist schief gelaufen',
     tryAgain: 'Bitte versuchen Sie es erneut'
   },

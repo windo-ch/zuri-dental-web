@@ -50,11 +50,17 @@ const VisitPage: React.FC = () => {
         <section className="pt-32 pb-32 relative overflow-hidden min-h-[600px] md:min-h-[700px]">
           {/* Dimmed Background Image */}
           <div className="absolute inset-0 z-0">
-            <img
-              src="/assets/images/team/nic-and-reto-lab-2.jpg"
-              alt="Pietrobon & Michel Laboratory"
-              className="w-full h-full object-cover"
-            />
+            <picture>
+              <source srcSet="/assets/images/team/nic-and-reto-lab-2.webp" type="image/webp" />
+              <img
+                src="/assets/images/team/nic-and-reto-lab-2.jpg"
+                alt="Pietrobon & Michel Laboratory"
+                className="w-full h-full object-cover"
+                width={1920}
+                height={1080}
+                loading="lazy"
+              />
+            </picture>
             <div className="absolute inset-0 bg-gradient-to-b from-dental-900/60 via-dental-800/50 to-dental-900/60"></div>
           </div>
           
@@ -93,11 +99,17 @@ const VisitPage: React.FC = () => {
             >
               {/* Image extending to left, top, and bottom edges */}
               <div className="absolute left-0 top-0 w-full md:w-1/4 h-48 md:h-auto md:bottom-0 overflow-hidden rounded-t-2xl md:rounded-t-none">
-                <img
-                  src="/assets/images/core/Bahnhofstrasse-s.jpg"
-                  alt="Bahnhofstrasse, Zürich"
-                  className="w-full h-full object-cover"
-                />
+                <picture>
+                  <source srcSet="/assets/images/core/Bahnhofstrasse-s.webp" type="image/webp" />
+                  <img
+                    src="/assets/images/core/Bahnhofstrasse-s.jpg"
+                    alt="Bahnhofstrasse, Zürich"
+                    className="w-full h-full object-cover"
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-white/80 to-transparent"></div>
               </div>
               
@@ -163,9 +175,9 @@ const VisitPage: React.FC = () => {
                       </a>
                       <a 
                         href={`mailto:${labInfo.email}`}
-                        className="text-dental-700 hover:text-dental-800 transition-colors block font-medium hover:underline break-all flex items-center text-lg w-full md:w-auto"
+                        className="text-dental-700 hover:text-dental-800 transition-colors block font-medium hover:underline break-all flex items-center text-sm md:text-lg w-full md:w-auto"
                       >
-                        <Mail className="w-5 h-5 mr-3 flex-shrink-0" />
+                        <Mail className="w-4 h-4 md:w-5 md:h-5 mr-3 flex-shrink-0" />
                         {labInfo.email}
                       </a>
                       <p className="text-dental-600 text-base mt-6 italic pt-4 border-t border-dental-200">

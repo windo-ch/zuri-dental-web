@@ -231,8 +231,13 @@ export const en = {
     save: 'Save Preferences'
   },
   errors: {
-    pageNotFound: 'Oops! Page not found',
+    pageNotFound: 'Page Not Found',
+    pageNotFoundDescription: 'The page you are looking for could not be found. It may have been moved or deleted.',
     returnHome: 'Return to Home',
+    visitLab: 'Visit Our Lab',
+    popularPages: 'Popular Pages',
+    '404Title': '404 - Page Not Found | Pietrobon & Michel',
+    '404Description': 'The page you are looking for could not be found. Return to our homepage or explore our dental technology services.',
     somethingWentWrong: 'Something went wrong',
     tryAgain: 'Please try again'
   },
