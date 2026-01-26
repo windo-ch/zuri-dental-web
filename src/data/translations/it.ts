@@ -504,7 +504,7 @@ export const it = {
     }
   },
   seo: {
-    home: { title: 'Pietrobon & Michel | Eccellenza nella Tecnologia Dentale', description: 'Pietrobon & Michel è un laboratorio di tecnologia dentale leader a Zurigo, che fornisce restauri dentali di alta qualità e soluzioni innovative dal 1998.' },
+    home: { title: 'Pietrobon & Michel | Eccellenza nella Tecnologia Dentale Zurigo', description: 'Laboratorio di tecnologia dentale leader a Zurigo dal 1998. Esperti in restauri dentali, corone, ponti e protesi personalizzate per dentisti e pazienti in tutta la Svizzera.' },
     about: { title: 'Chi Siamo - Pietrobon & Michel', description: 'Scopri il nostro credo, missione e valori fondamentali. Eccellenza nell\'arte dentale dal 1998.' },
     dentists: { title: 'Per i Dentisti - Pietrobon & Michel', description: 'Risorse professionali, moduli di ordine del laboratorio e supporto tecnico per i professionisti dentali.' },
     patients: { title: 'Visita il Nostro Laboratorio - Pietrobon & Michel', description: 'Trova la nostra posizione, indicazioni, parcheggio e informazioni per i visitatori per i pazienti.' },

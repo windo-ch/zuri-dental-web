@@ -45,10 +45,10 @@ const SlideDemoPage: React.FC = () => {
               className="w-full"
               style={{ willChange: 'transform, opacity' }}
             >
-              <h1 className="hidden md:block text-2xl md:text-3xl lg:text-4xl font-display font-bold text-dental-800 mb-2 md:mb-3">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-dental-800 mb-2 md:mb-3">
                 {t('slideDemo.team.title')}
-              </h1>
-              <p className="hidden md:block text-sm md:text-base lg:text-lg text-dental-600 mb-6 md:mb-8 max-w-2xl mx-auto px-2">
+              </h2>
+              <p className="text-sm md:text-base lg:text-lg text-dental-600 mb-6 md:mb-8 max-w-2xl mx-auto px-2">
                 {t('slideDemo.team.subtitle')}
               </p>
               
@@ -122,9 +122,9 @@ const SlideDemoPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <h3 className="text-base md:text-lg font-display font-bold text-dental-800 mb-3 md:mb-4">
+                <h2 className="text-base md:text-lg font-display font-bold text-dental-800 mb-3 md:mb-4">
                   {t('slideDemo.team.learnMore')}
-                </h3>
+                </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
                   <motion.button
@@ -190,6 +190,9 @@ const SlideDemoPage: React.FC = () => {
               className="w-full"
               style={{ willChange: 'transform, opacity' }}
             >
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-6 md:mb-8 drop-shadow-lg">
+                {t('slideDemo.services.title', 'Our Services')}
+              </h2>
               <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto">
                 <motion.div
                   className="bg-dental-600 text-white rounded-xl p-4 md:p-8 shadow-lg cursor-pointer"

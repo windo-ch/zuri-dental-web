@@ -487,7 +487,7 @@ export const de = {
     }
   },
   seo: {
-    home: { title: 'Pietrobon & Michel | Exzellenz in der Zahntechnik', description: 'Pietrobon & Michel ist ein führendes zahntechnisches Labor in Zürich, das seit 1998 hochwertige Zahnrestaurationen und innovative Lösungen bietet.' },
+    home: { title: 'Pietrobon & Michel | Exzellenz in der Zahntechnik Zürich', description: 'Führendes zahntechnisches Labor in Zürich seit 1998. Experten für Zahnrestaurationen, Kronen, Brücken und individuelle Prothesen für Zahnärzte und Patienten in der ganzen Schweiz.' },
     about: { title: 'Über Uns - Pietrobon & Michel', description: 'Erfahren Sie mehr über unser Credo, unsere Mission und unsere Kernwerte. Exzellenz in zahntechnischer Kunst seit 1998.' },
     dentists: { title: 'Für Zahnärzte - Pietrobon & Michel', description: 'Professionelle Ressourcen, Laborauftragsformulare und technischer Support für Zahnärzte.' },
     patients: { title: 'Besuchen Sie unser Labor - Pietrobon & Michel', description: 'Finden Sie unseren Standort, Wegbeschreibungen, Parkplätze und Besucherinformationen für Patienten.' },

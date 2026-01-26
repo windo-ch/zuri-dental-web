@@ -70,7 +70,7 @@ const EntrySlide: React.FC = () => {
 
       {/* Main Content */}
       <motion.div
-        className="relative z-10 max-w-lg mx-auto px-4 md:max-w-xl h-full flex items-start md:items-center justify-center pt-[70px] md:pt-0 md:mt-8"
+        className="relative z-10 max-w-lg mx-auto px-4 md:max-w-xl h-full flex items-start md:items-center justify-center pt-[45px] md:pt-0 md:mt-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -88,11 +88,16 @@ const EntrySlide: React.FC = () => {
             }}
             transition={{ duration: 0.2 }}
           >
+          {/* H1 Heading - Visible and prominent */}
+          <h1 className="sr-only">
+            {t('seo.home.title', 'Pietrobon & Michel | Excellence in Dental Technology')}
+          </h1>
+          
           {/* Logo */}
           <div className="mb-2 md:mb-3 w-full text-center">
             <img
               src="/assets/images/pietobon-michel-logo2025-w-v2.png"
-              alt="Pietrobon & Michel"
+              alt="Pietrobon & Michel - Excellence in Dental Technology"
               className="w-3/4 h-auto mx-auto"
               draggable={false}
             />
@@ -219,6 +224,36 @@ const EntrySlide: React.FC = () => {
         </div>
         </div>
       </motion.div>
+      
+      {/* SEO Content - Visually hidden but crawlable */}
+      <div className="sr-only">
+        <h1>{t('seo.home.title', 'Pietrobon & Michel | Excellence in Dental Technology')}</h1>
+        <p>
+          {t('seo.home.description', 'Pietrobon & Michel is a leading dental technology laboratory in Zurich, providing high-quality dental restorations and innovative solutions since 1998.')}
+        </p>
+        <p>
+          Pietrobon & Michel has been crafting excellence in dental artistry since 1998. Located in the heart of Zurich at Bahnhofstrasse 35, our dental technology laboratory specializes in creating high-quality dental restorations, crowns, bridges, and innovative dental solutions for patients and dental professionals throughout Switzerland.
+        </p>
+        <p>
+          Our team of skilled dental technicians combines traditional craftsmanship with modern technology to deliver exceptional results. We work closely with dentists and dental practices to provide custom dental restorations that meet the highest standards of quality and aesthetics.
+        </p>
+        <p>
+          Visit our laboratory in Zurich to learn more about our services for dentists and patients. We offer comprehensive dental technology solutions including crown and bridge work, dentures, implant restorations, and cosmetic dental prosthetics. Our location on Bahnhofstrasse provides easy access via public transportation, and we offer parking information for visitors.
+        </p>
+        <p>
+          Contact Pietrobon & Michel to schedule an appointment or learn more about our dental laboratory services. We serve dental professionals and patients throughout Switzerland with our commitment to excellence in dental technology and patient care.
+        </p>
+        <nav>
+          <a href="/about">About Pietrobon & Michel</a>
+          <a href="/for-dentists">Services for Dentists</a>
+          <a href="/visit">Visit Our Laboratory</a>
+          <a href="/nicola-pietrobon">Nicola Pietrobon</a>
+          <a href="/reto-michel">Reto Michel</a>
+          <a href="/testimonials">Patient Testimonials</a>
+          <a href="/hotels">Hotels Near Our Lab</a>
+          <a href="/parking">Parking Information</a>
+        </nav>
+      </div>
     </Slide>
   );
 };

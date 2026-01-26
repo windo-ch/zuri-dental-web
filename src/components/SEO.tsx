@@ -52,21 +52,25 @@ export function SEO({
   // Construct the canonical URL
   const currentLang = i18n.language;
   
-  // Determine if we're on a language-specific route
+  // Determine if we're on a language-specific route (for backward compatibility)
   const pathParts = pathname.split('/').filter(Boolean);
   const firstPathPart = pathParts[0];
   const isLanguageRoute = ['en', 'de', 'it', 'ru'].includes(firstPathPart);
   
-  // Create canonical and alternate URLs
+  // Create canonical URL - always use base pathname without language prefix
   const pathWithoutLang = isLanguageRoute ? `/${pathParts.slice(1).join('/')}` : pathname;
-  const canonicalUrl = canonical || `${baseUrl}${isLanguageRoute ? pathWithoutLang : pathname}`;
+  // For homepage, ensure canonical is exactly the base URL
+  const canonicalPath = pathWithoutLang === '/' ? '' : pathWithoutLang;
+  const canonicalUrl = canonical || `${baseUrl}${canonicalPath}`;
   
   // Create alternate language URLs for hreflang tags
+  // Since site uses i18n without language routes, all alternates point to same URL
+  const currentUrl = `${baseUrl}${canonicalPath}`;
   const alternateUrls = {
-    en: `${baseUrl}/en${pathWithoutLang}`,
-    de: `${baseUrl}/de${pathWithoutLang}`,
-    it: `${baseUrl}/it${pathWithoutLang}`,
-    ru: `${baseUrl}/ru${pathWithoutLang}`,
+    en: currentUrl,
+    de: currentUrl,
+    it: currentUrl,
+    ru: currentUrl,
   };
   
   // Default structured data - LocalBusiness (more specific than Organization for SEO)
@@ -189,6 +193,7 @@ export function SEO({
       
       {/* Hreflang tags for language alternatives */}
       <link rel="alternate" hrefLang="x-default" href={alternateUrls.en} />
+      <link rel="alternate" hrefLang={currentLang} href={canonicalUrl} />
       <link rel="alternate" hrefLang="en" href={alternateUrls.en} />
       <link rel="alternate" hrefLang="de" href={alternateUrls.de} />
       <link rel="alternate" hrefLang="it" href={alternateUrls.it} />

@@ -124,7 +124,7 @@ const VisitPage: React.FC = () => {
                         {t('slides.patients.addressTitle')}
                       </h3>
                     </div>
-                    <div className="space-y-2 pl-16">
+                    <div className="space-y-2 pl-0 md:pl-16">
                       <p className="text-dental-800 font-medium text-xl">
                         {labInfo.address.street}
                       </p>
@@ -153,17 +153,17 @@ const VisitPage: React.FC = () => {
                         {t('slides.patients.contactTitle')}
                       </h3>
                     </div>
-                    <div className="space-y-4 pl-16">
+                    <div className="space-y-4 pl-0 md:pl-16">
                       <a 
                         href={`tel:${labInfo.phone}`}
-                        className="text-dental-700 hover:text-dental-800 transition-colors block font-medium hover:underline flex items-center text-lg"
+                        className="text-dental-700 hover:text-dental-800 transition-colors block font-medium hover:underline flex items-center text-lg w-full md:w-auto"
                       >
-                        <Phone className="w-5 h-5 mr-3" />
+                        <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
                         {labInfo.phone}
                       </a>
                       <a 
                         href={`mailto:${labInfo.email}`}
-                        className="text-dental-700 hover:text-dental-800 transition-colors block font-medium hover:underline break-all flex items-center text-lg"
+                        className="text-dental-700 hover:text-dental-800 transition-colors block font-medium hover:underline break-all flex items-center text-lg w-full md:w-auto"
                       >
                         <Mail className="w-5 h-5 mr-3 flex-shrink-0" />
                         {labInfo.email}

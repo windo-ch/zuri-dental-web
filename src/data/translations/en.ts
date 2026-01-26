@@ -31,8 +31,8 @@ export const en = {
   },
   seo: {
     home: {
-      title: 'Pietrobon & Michel | Excellence in Dental Technology',
-      description: 'Pietrobon & Michel is a leading dental technology laboratory in Zurich, providing high-quality dental restorations and innovative solutions since 1998.'
+      title: 'Pietrobon & Michel | Excellence in Dental Technology Zurich',
+      description: 'Leading dental technology laboratory in Zurich since 1998. Expert dental restorations, crowns, bridges, and custom prosthetics for dentists and patients throughout Switzerland.'
     },
     about: {
       title: 'About Us - Pietrobon & Michel',

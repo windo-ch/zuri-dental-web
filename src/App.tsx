@@ -18,7 +18,6 @@ const NicolaPietrobonPage = lazy(() => import("./pages/NicolaPietrobonPage"));
 const RetoMichelPage = lazy(() => import("./pages/RetoMichelPage"));
 const HotelsPage = lazy(() => import("./pages/HotelsPage"));
 const ParkingPage = lazy(() => import("./pages/ParkingPage"));
-const ContactPage = lazy(() => import("./pages/ContactPage"));
 const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
 const TermsPage = lazy(() => import("./pages/TermsPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -59,7 +58,7 @@ const App = () => (
               <Route path="/parking" element={<ParkingPage />} />
               
               {/* Essential Pages */}
-              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/contact" element={<Navigate to="/visit" replace />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
               
