@@ -237,7 +237,7 @@ const EntrySlide: React.FC = () => {
           {t('seo.home.description', 'Pietrobon & Michel is a leading dental technology laboratory in Zurich, providing high-quality dental restorations and innovative solutions since 1998.')}
         </p>
         <p>
-          Pietrobon & Michel has been crafting excellence in dental artistry since 1998. Located in the heart of Zurich at Bahnhofstrasse 35, our dental technology laboratory specializes in creating high-quality dental restorations, crowns, bridges, and innovative dental solutions for patients and dental professionals throughout Switzerland.
+          Pietrobon & Michel has been crafting excellence in dental artistry since 1998. Located in the heart of Zurich at Bahnhofstrasse 35, our dental technology laboratory specializes in creating high-quality dental restorations, crowns, bridges, and innovative dental solutions for patients and dental professionals in Switzerland and internationally.
         </p>
         <p>
           Our team of skilled dental technicians combines traditional craftsmanship with modern technology to deliver exceptional results. We work closely with dentists and dental practices to provide custom dental restorations that meet the highest standards of quality and aesthetics.
@@ -246,7 +246,7 @@ const EntrySlide: React.FC = () => {
           Visit our laboratory in Zurich to learn more about our services for dentists and patients. We offer comprehensive dental technology solutions including crown and bridge work, dentures, implant restorations, and cosmetic dental prosthetics. Our location on Bahnhofstrasse provides easy access via public transportation, and we offer parking information for visitors.
         </p>
         <p>
-          Contact Pietrobon & Michel to schedule an appointment or learn more about our dental laboratory services. We serve dental professionals and patients throughout Switzerland with our commitment to excellence in dental technology and patient care.
+          Contact Pietrobon & Michel to schedule an appointment or learn more about our dental laboratory services. We serve dental professionals and patients in Switzerland and internationally with our commitment to excellence in dental technology and patient care.
         </p>
         <nav>
           <a href="/about">About Pietrobon & Michel</a>
