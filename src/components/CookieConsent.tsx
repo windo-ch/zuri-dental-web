@@ -131,9 +131,10 @@ const CookieConsent = () => {
           <div className="container max-w-6xl mx-auto px-4 py-4 md:py-6">
             <div className="flex justify-between items-start mb-4">
               <h3 className="font-medium text-lg">{t('cookies.title')}</h3>
-              <button 
+              <button
                 onClick={() => setShowConsent(false)}
                 className="text-gray-500 hover:text-gray-800"
+                aria-label="Close"
               >
                 <X size={20} />
               </button>

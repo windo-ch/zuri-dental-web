@@ -500,11 +500,8 @@ export const it = {
   },
   schedule: {
     title: 'Date di Chiusura del Laboratorio',
-    note: 'Queste date si applicano sia al 2025 che al 2026. Pianifica il tuo lavoro dentale di conseguenza per evitare ritardi.',
+    note: 'Pianifica il tuo lavoro dentale di conseguenza per evitare ritardi.',
     holidays: {
-      christmas2025: { date: '22 dicembre 2025 - 2 gennaio 2026', name: 'Pausa Natalizia', duration: '12 giorni' },
-      easter2026: { date: '30 marzo - 6 aprile 2026', name: 'Pausa Pasquale', duration: '8 giorni' },
-      summer2026: { date: '20 luglio - 9 agosto 2026', name: 'Pausa Estiva', duration: '3 settimane' },
       christmas2026: { date: '21 dicembre 2026 - 3 gennaio 2027', name: 'Pausa Natalizia', duration: '2 settimane' }
     }
   },

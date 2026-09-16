@@ -7,16 +7,6 @@ const HolidaySchedule: React.FC = () => {
   const { t } = useTranslation();
   const holidays = [
     {
-      date: t('schedule.holidays.easter2026.date'),
-      name: t('schedule.holidays.easter2026.name'), 
-      duration: t('schedule.holidays.easter2026.duration')
-    },
-    {
-      date: t('schedule.holidays.summer2026.date'),
-      name: t('schedule.holidays.summer2026.name'),
-      duration: t('schedule.holidays.summer2026.duration')
-    },
-    {
       date: t('schedule.holidays.christmas2026.date'),
       name: t('schedule.holidays.christmas2026.name'),
       duration: t('schedule.holidays.christmas2026.duration')

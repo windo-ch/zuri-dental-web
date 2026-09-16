@@ -53,6 +53,7 @@ const EntrySlide: React.FC = () => {
         muted
         loop
         playsInline
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-20"
         poster="/assets/images/video-posters/zurich-pundm-poster.jpg"
         preload="metadata"

@@ -16,6 +16,7 @@ const ClosingSlide: React.FC = () => {
         muted
         loop
         playsInline
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-30"
         poster="/assets/images/video-posters/zurich-pundm-poster.jpg"
         preload="metadata"
@@ -39,9 +40,9 @@ const ClosingSlide: React.FC = () => {
           className="w-full"
           style={{ willChange: 'transform, opacity' }}
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 md:mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 md:mb-6">
             {t('slides.closing.title')}
-          </h1>
+          </h2>
           <p className="text-base md:text-lg lg:text-xl mb-6 md:mb-8 max-w-2xl mx-auto opacity-90">
             {t('slides.closing.description')}
           </p>

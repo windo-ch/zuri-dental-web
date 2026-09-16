@@ -889,23 +889,8 @@ export const en = {
   },
   schedule: {
     title: 'Lab Closure Dates',
-    note: 'These dates apply to both 2025 and 2026. Plan your dental work accordingly to avoid delays.',
+    note: 'Plan your dental work accordingly to avoid delays.',
     holidays: {
-      christmas2025: {
-        date: 'December 22, 2025 - January 2, 2026',
-        name: 'Christmas Break',
-        duration: '12 days'
-      },
-      easter2026: {
-        date: 'March 30 - April 6, 2026',
-        name: 'Easter Break',
-        duration: '8 days'
-      },
-      summer2026: {
-        date: 'July 20 - August 9, 2026',
-        name: 'Summer Break',
-        duration: '3 weeks'
-      },
       christmas2026: {
         date: 'December 21, 2026 - January 3, 2027',
         name: 'Christmas Break',

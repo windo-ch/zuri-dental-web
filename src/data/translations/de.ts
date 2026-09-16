@@ -483,11 +483,8 @@ export const de = {
   },
   schedule: {
     title: 'Laborschliessungstermine',
-    note: 'Diese Termine gelten sowohl für 2025 als auch für 2026. Planen Sie Ihre zahnärztliche Arbeit entsprechend, um Verzögerungen zu vermeiden.',
+    note: 'Planen Sie Ihre zahnärztliche Arbeit entsprechend, um Verzögerungen zu vermeiden.',
     holidays: {
-      christmas2025: { date: '22. Dezember 2025 - 2. Januar 2026', name: 'Weihnachtspause', duration: '12 Tage' },
-      easter2026: { date: '30. März - 6. April 2026', name: 'Osterpause', duration: '8 Tage' },
-      summer2026: { date: '20. Juli - 9. August 2026', name: 'Sommerpause', duration: '3 Wochen' },
       christmas2026: { date: '21. Dezember 2026 - 3. Januar 2027', name: 'Weihnachtspause', duration: '2 Wochen' }
     }
   },
