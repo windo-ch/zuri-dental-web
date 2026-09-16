@@ -105,6 +105,7 @@ const SlideNavBar: React.FC<SlideNavBarProps> = ({
           >
             <motion.button
               onClick={() => navigate('/')}
+              aria-label={t('navigation.tooltips.homeButton')}
               className="p-3 bg-white/95 backdrop-blur-md hover:bg-white shadow-lg hover:shadow-xl border border-dental-200/50 rounded-full transition-all duration-200"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -129,15 +130,17 @@ const SlideNavBar: React.FC<SlideNavBarProps> = ({
                 >
                   <button
                     onClick={() => onGoToSlide?.(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                      index === currentSlide
-                        ? 'bg-dental-600 scale-125'
-                        : 'bg-dental-300 hover:bg-dental-400'
-                    }`}
+                    className="p-4 flex items-center justify-center rounded-full"
                     onMouseEnter={() => setHoveredItem(`slide-${index}`)}
                     onMouseLeave={() => setHoveredItem(null)}
                     aria-label={`${t('navigation.tooltips.entry')} ${index + 1}`}
-                  />
+                  >
+                    <span className={`w-3 h-3 rounded-full block transition-all duration-200 ${
+                      index === currentSlide
+                        ? 'bg-dental-600 scale-125'
+                        : hoveredItem === `slide-${index}` ? 'bg-dental-400' : 'bg-dental-300'
+                    }`} />
+                  </button>
                 </Tooltip>
               ))}
               
@@ -156,13 +159,14 @@ const SlideNavBar: React.FC<SlideNavBarProps> = ({
               >
                 <motion.button
                   onClick={item.action}
-                  className="p-2 text-dental-600 hover:text-dental-700 hover:bg-dental-50 rounded-full transition-all duration-200"
+                  aria-label={item.description}
+                  className="p-3 text-dental-600 hover:text-dental-700 hover:bg-dental-50 rounded-full transition-all duration-200"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   onMouseEnter={() => setHoveredItem(item.id)}
                   onMouseLeave={() => setHoveredItem(null)}
                 >
-                  <IconComponent className="w-4 h-4" />
+                  <IconComponent className="w-5 h-5" />
                 </motion.button>
               </Tooltip>
             );

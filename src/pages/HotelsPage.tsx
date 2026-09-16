@@ -197,6 +197,7 @@ const HotelsPage: React.FC = () => {
         {/* Hotels List */}
         <section className="py-16 bg-white">
           <div className="container max-w-6xl mx-auto px-4">
+            <h2 className="sr-only">{t('slides.hotels.title')}</h2>
             <div className="space-y-8">
               {hotels.map((hotel, index) => (
                 <motion.div

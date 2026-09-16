@@ -53,6 +53,7 @@ const FloatingBackButton: React.FC<FloatingBackButtonProps> = ({
         onClick={handleBack}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        aria-label="Back"
         className="flex items-center bg-white/95 backdrop-blur-md hover:bg-white shadow-lg hover:shadow-xl border border-dental-200/50 rounded-full transition-all duration-300"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
